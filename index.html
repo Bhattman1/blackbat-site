@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blackbat — Learn cybersecurity the fun way</title>
+  <meta name="description" content="Blackbat Terminal: a Duolingo-style cybersecurity trainer. Daily missions, streaks, rankings, and certification packs. Join the waitlist." />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <meta property="og:title" content="Blackbat — Learn cybersecurity the fun way" />
+  <meta property="og:description" content="Five minutes a day. Daily missions, streaks, rankings, cert packs. Join the waitlist." />
+  <meta property="og:image" content="assets/og-image.png" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --surface: #131313;
+      --green: #00ff41;
+      --green-dim: #0d2a12;
+      --amber: #ffb000;
+      --red: #ff003c;
+      --text: #e5e2e1;
+      --muted: #b9ccb2;
+      --dim: #5f6e59;
+      --edge: #3b4b37;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "JetBrains Mono", ui-monospace, monospace;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    /* CRT scanlines + vignette */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 100;
+      background:
+        repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.14) 0 1px, transparent 1px 3px);
+    }
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 99;
+      background: radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.5) 100%);
+    }
+    .wrap { max-width: 780px; margin: 0 auto; padding: 0 20px; }
+
+    /* Top bar */
+    header {
+      border-bottom: 1px solid var(--edge);
+      padding: 14px 0;
+      position: sticky;
+      top: 0;
+      background: rgba(10, 10, 10, 0.92);
+      backdrop-filter: blur(6px);
+      z-index: 50;
+    }
+    header .wrap { display: flex; justify-content: space-between; align-items: center; }
+    .brand {
+      font-family: "Space Mono", monospace;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--text);
+      text-shadow: 0 0 6px rgba(229, 226, 225, 0.55);
+      font-size: 15px;
+    }
+    .status-chip {
+      font-size: 11px;
+      letter-spacing: 1.2px;
+      color: var(--amber);
+      border: 1px solid var(--amber);
+      padding: 4px 10px;
+    }
+    .status-chip .dot {
+      display: inline-block; width: 7px; height: 7px; background: var(--amber);
+      margin-right: 7px; animation: blink 1.1s steps(1) infinite;
+    }
+
+    /* Hero */
+    .hero { text-align: center; padding: 72px 0 40px; }
+    .bat {
+      width: 190px; height: 190px; object-fit: contain;
+      filter: drop-shadow(0 0 22px rgba(0, 255, 65, 0.25));
+      animation: hover 2.6s ease-in-out infinite;
+    }
+    @keyframes hover {
+      0%, 100% { transform: translateY(0) rotate(-1.2deg); }
+      50% { transform: translateY(-14px) rotate(1.2deg); }
+    }
+    h1 {
+      font-family: "Space Mono", monospace;
+      font-size: clamp(30px, 6.5vw, 52px);
+      letter-spacing: 2px;
+      color: var(--green);
+      text-shadow: 0 0 12px rgba(0, 255, 65, 0.55);
+      margin-top: 18px;
+    }
+    .subtitle {
+      color: var(--muted);
+      margin: 18px auto 0;
+      max-width: 560px;
+      min-height: 3.2em;
+      font-size: 15px;
+    }
+    .cursor { color: var(--green); animation: blink 1s steps(1) infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    /* Waitlist pane */
+    .pane {
+      border: 1px solid var(--green);
+      background: rgba(13, 42, 18, 0.18);
+      padding: 28px;
+      margin: 36px auto 0;
+      max-width: 560px;
+      text-align: left;
+      box-shadow: 0 0 30px rgba(0, 255, 65, 0.07);
+    }
+    .pane-header {
+      display: flex; justify-content: space-between;
+      font-size: 11px; letter-spacing: 1.4px; color: var(--dim);
+      margin-bottom: 18px;
+    }
+    .pane-title { color: var(--text); font-weight: 700; font-size: 15px; letter-spacing: 0.6px; margin-bottom: 6px; }
+    .pane-sub { color: var(--muted); font-size: 13px; margin-bottom: 22px; }
+    form .row { display: flex; gap: 10px; flex-wrap: wrap; }
+    .input-wrap {
+      flex: 1 1 240px;
+      display: flex; align-items: center;
+      border-bottom: 1px solid var(--edge);
+    }
+    .input-wrap span { color: var(--green); font-weight: 700; }
+    input[type="email"] {
+      flex: 1;
+      background: transparent; border: 0; outline: 0;
+      color: var(--text);
+      font-family: inherit; font-size: 15px;
+      padding: 12px 8px;
+      caret-color: var(--green);
+    }
+    input[type="email"]::placeholder { color: var(--dim); letter-spacing: 0.5px; }
+    .hp { position: absolute; left: -5000px; opacity: 0; pointer-events: none; }
+    button {
+      background: transparent;
+      border: 1px solid var(--green);
+      color: var(--green);
+      font-family: inherit; font-weight: 700; font-size: 14px;
+      letter-spacing: 1px;
+      padding: 13px 22px;
+      cursor: pointer;
+      transition: background 0.12s, color 0.12s, transform 0.06s;
+    }
+    button:hover, button:focus-visible { background: var(--green); color: #0a0a0a; }
+    button:active { transform: translateY(1px); }
+    button:disabled { border-color: var(--edge); color: var(--dim); background: transparent; cursor: wait; }
+    .form-status { margin-top: 16px; font-size: 13px; min-height: 1.4em; }
+    .form-status.ok { color: var(--green); }
+    .form-status.warn { color: var(--amber); }
+    .form-status.err { color: var(--red); }
+
+    /* Features */
+    .section-label {
+      font-size: 12px; letter-spacing: 2px; color: var(--amber);
+      text-align: center; margin: 84px 0 26px;
+    }
+    .grid {
+      display: grid; gap: 14px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      margin-bottom: 20px;
+    }
+    .card {
+      border: 1px solid var(--edge);
+      background: var(--surface);
+      padding: 22px;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .card:hover { border-color: var(--green); box-shadow: 0 0 18px rgba(0, 255, 65, 0.08); }
+    .card h3 {
+      font-size: 14px; letter-spacing: 1px; color: var(--green);
+      margin-bottom: 10px; font-family: "Space Mono", monospace;
+    }
+    .card p { font-size: 13px; color: var(--muted); }
+    .card .tag { color: var(--amber); font-size: 11px; letter-spacing: 1px; }
+
+    /* Certs strip */
+    .certs {
+      display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
+      margin-top: 8px;
+    }
+    .cert {
+      border: 1px solid var(--edge); color: var(--muted);
+      font-size: 12px; letter-spacing: 1px; padding: 7px 14px;
+    }
+
+    /* Terminal log flavor */
+    .log {
+      border: 1px solid var(--edge);
+      background: var(--surface);
+      padding: 22px 24px;
+      margin: 84px 0 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .log .ln { display: block; }
+    .log .g { color: var(--green); }
+    .log .a { color: var(--amber); }
+
+    footer {
+      margin: 80px 0 36px;
+      text-align: center;
+      color: var(--dim);
+      font-size: 11px;
+      letter-spacing: 1.4px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .bat, .cursor, .status-chip .dot { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="brand">&gt; BLACKBAT TERMINAL</div>
+      <div class="status-chip"><span class="dot"></span>PRE-LAUNCH</div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <img class="bat" src="assets/bat.png" alt="The Blackbat mascot — a purple bat with spread wings" width="190" height="190" />
+      <h1>BLACKBAT</h1>
+      <p class="subtitle"><span id="typed"></span><span class="cursor">█</span></p>
+
+      <div class="pane" id="waitlist">
+        <div class="pane-header"><span>[SYS_BOOT]</span><span>ACCESS_QUEUE</span></div>
+        <div class="pane-title">&gt; REQUEST_EARLY_ACCESS</div>
+        <div class="pane-sub">Be first through the door when Blackbat goes live on the App Store.</div>
+        <form id="form" novalidate>
+          <div class="row">
+            <div class="input-wrap">
+              <span>&gt;&nbsp;</span>
+              <input id="email" type="email" name="email" placeholder="OPERATIVE@EMAIL.COM" autocomplete="email" required />
+            </div>
+            <button id="submit" type="submit">[JOIN_WAITLIST]</button>
+          </div>
+          <!-- honeypot -->
+          <input class="hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <p class="form-status" id="status" role="status"></p>
+        </form>
+      </div>
+    </section>
+
+    <p class="section-label">// MISSION_BRIEF</p>
+    <div class="grid">
+      <div class="card">
+        <h3>DAILY_MISSIONS</h3>
+        <p>A winding skill tree of bite-size cybersecurity lessons. Decode intercepts, spot phishing lures, harden passwords — five minutes a day.</p>
+      </div>
+      <div class="card">
+        <h3>STREAKS_&amp;_RANKINGS</h3>
+        <p>Keep the chain alive before TIME_TO_DETECTION hits zero. Climb the weekly leaderboard against your squad.</p>
+      </div>
+      <div class="card">
+        <h3>THE_BAT</h3>
+        <p>Your instructor flaps, celebrates clean decrypts, and slumps over corrupted traces. It takes your streak personally.</p>
+      </div>
+      <div class="card">
+        <h3>CERT_PACKS <span class="tag">PRO</span></h3>
+        <p>Dedicated study packs with mock exams and weak-topic analytics for the certifications that matter.</p>
+      </div>
+    </div>
+    <div class="certs">
+      <span class="cert">Security+</span>
+      <span class="cert">CySA+</span>
+      <span class="cert">PenTest+</span>
+      <span class="cert">CISSP</span>
+      <span class="cert">OSCP</span>
+    </div>
+
+    <div class="log" aria-hidden="true">
+      <span class="ln">&gt; boot_sequence: <span class="g">OK</span></span>
+      <span class="ln">&gt; question_bank: <span class="g">LOADED</span> — free forever, no paywall on core content</span>
+      <span class="ln">&gt; forced_ads_during_quizzes: <span class="g">DISABLED</span></span>
+      <span class="ln">&gt; launch_window: <span class="a">CLASSIFIED</span> — join the queue for the signal</span>
+    </div>
+  </main>
+
+  <footer>© 2026 BLACKBAT // ALL TRANSMISSIONS MONITORED</footer>
+
+  <script>
+    // Typed subtitle
+    (function () {
+      var text = "Learn cybersecurity the fun way. Five minutes a day, operative.";
+      var el = document.getElementById("typed");
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        el.textContent = text;
+        return;
+      }
+      var i = 0;
+      (function tick() {
+        if (i <= text.length) {
+          el.textContent = text.slice(0, i++);
+          setTimeout(tick, 28);
+        }
+      })();
+    })();
+
+    // Waitlist form
+    (function () {
+      var ENDPOINT = "https://uncommon-chinchilla-687.convex.site/waitlist";
+      var form = document.getElementById("form");
+      var email = document.getElementById("email");
+      var btn = document.getElementById("submit");
+      var status = document.getElementById("status");
+
+      function setStatus(cls, msg) {
+        status.className = "form-status " + cls;
+        status.textContent = msg;
+      }
+
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        var value = email.value.trim();
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value)) {
+          setStatus("err", "> ERROR: enter a valid email address.");
+          return;
+        }
+        btn.disabled = true;
+        btn.textContent = "[TRANSMITTING…]";
+        try {
+          var res = await fetch(ENDPOINT, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              email: value,
+              source: "site",
+              company: form.elements.company.value,
+            }),
+          });
+          var data = await res.json();
+          if (data.ok && data.duplicate) {
+            setStatus("warn", "> Already in the queue. Patience, operative.");
+          } else if (data.ok) {
+            setStatus("ok", "> ACCESS_REQUEST_LOGGED. Stand by for the signal.");
+            form.reset();
+          } else {
+            setStatus("err", "> ERROR: " + (data.error === "invalid_email" ? "enter a valid email address." : "transmission failed. Try again."));
+          }
+        } catch (err) {
+          setStatus("err", "> ERROR: transmission failed. Check your connection and retry.");
+        } finally {
+          btn.disabled = false;
+          btn.textContent = "[JOIN_WAITLIST]";
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
