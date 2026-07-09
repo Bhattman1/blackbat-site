@@ -323,6 +323,9 @@
       var email = document.getElementById("email");
       var btn = document.getElementById("submit");
       var status = document.getElementById("status");
+      // Page-load timestamp, sent back so the server can reject submissions
+      // that arrive faster than a human could plausibly fill the form.
+      var renderedAt = Date.now();
 
       function setStatus(cls, msg) {
         status.className = "form-status " + cls;
@@ -346,10 +349,13 @@
               email: value,
               source: "site",
               company: form.elements.company.value,
+              renderedAt: renderedAt,
             }),
           });
           var data = await res.json();
-          if (data.ok && data.duplicate) {
+          if (res.status === 429 || (data && data.error === "rate_limited")) {
+            setStatus("err", "> ERROR: too many attempts. Wait a few minutes and retry.");
+          } else if (data.ok && data.duplicate) {
             setStatus("warn", "> Already in the queue. Patience, operative.");
           } else if (data.ok) {
             setStatus("ok", "> ACCESS_REQUEST_LOGGED. Stand by for the signal.");
