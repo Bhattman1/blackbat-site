@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blackbat — Privacy Policy</title>
+  <meta name="description" content="Blackbat privacy policy: what data we collect, why, who we share it with, and how to delete your account." />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --surface: #131313;
+      --green: #00ff41;
+      --green-dim: #0d2a12;
+      --amber: #ffb000;
+      --red: #ff003c;
+      --text: #e5e2e1;
+      --muted: #b9ccb2;
+      --dim: #5f6e59;
+      --edge: #3b4b37;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "JetBrains Mono", ui-monospace, monospace;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 100;
+      background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.14) 0 1px, transparent 1px 3px);
+    }
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 99;
+      background: radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.5) 100%);
+    }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+
+    header {
+      border-bottom: 1px solid var(--edge);
+      padding: 14px 0;
+      position: sticky;
+      top: 0;
+      background: rgba(10, 10, 10, 0.92);
+      backdrop-filter: blur(6px);
+      z-index: 50;
+    }
+    header .wrap { display: flex; justify-content: space-between; align-items: center; }
+    .brand {
+      font-family: "Space Mono", monospace;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--text);
+      text-decoration: none;
+      text-shadow: 0 0 6px rgba(229, 226, 225, 0.55);
+      font-size: 15px;
+    }
+    .back-link {
+      font-size: 12px;
+      letter-spacing: 0.5px;
+      color: var(--green);
+      text-decoration: none;
+    }
+    .back-link:hover { text-decoration: underline; }
+
+    main { padding: 48px 0 80px; }
+    h1 {
+      font-family: "Space Mono", monospace;
+      font-size: clamp(26px, 5vw, 36px);
+      color: var(--green);
+      text-shadow: 0 0 12px rgba(0, 255, 65, 0.5);
+      margin-bottom: 10px;
+    }
+    .lede {
+      color: var(--muted);
+      margin-bottom: 40px;
+      font-size: 14px;
+    }
+
+    .contact-pane {
+      border: 1px solid var(--green);
+      background: rgba(13, 42, 18, 0.18);
+      padding: 24px;
+      margin-bottom: 40px;
+    }
+    .contact-pane .label {
+      font-size: 11px;
+      letter-spacing: 1.4px;
+      color: var(--dim);
+      margin-bottom: 10px;
+    }
+    .contact-pane a {
+      color: var(--green);
+      font-weight: 700;
+      font-size: 17px;
+      text-decoration: none;
+    }
+    .contact-pane a:hover { text-decoration: underline; }
+    .contact-pane .note {
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .section-label {
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: var(--amber);
+      margin: 40px 0 18px;
+    }
+    .faq {
+      border: 1px solid var(--edge);
+      background: var(--surface);
+      padding: 20px 22px;
+      margin-bottom: 14px;
+    }
+    .faq h3 {
+      font-size: 14px;
+      color: var(--green);
+      font-family: "Space Mono", monospace;
+      margin-bottom: 8px;
+    }
+    .faq p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .faq p + p { margin-top: 10px; }
+    .faq ul {
+      margin: 8px 0 0 18px;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .faq code {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.06);
+      padding: 1px 5px;
+      font-size: 12px;
+    }
+
+    footer {
+      margin: 60px 0 20px;
+      text-align: center;
+      color: var(--dim);
+      font-size: 11px;
+      letter-spacing: 1.2px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <a class="brand" href="index.html">&gt; BLACKBAT</a>
+      <a class="back-link" href="support.html">&lt; SUPPORT</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h1>PRIVACY_POLICY</h1>
+    <p class="lede">&gt; What we collect, why we collect it, and how to make it go away.</p>
+
+    <div class="contact-pane">
+      <div class="label">[EFFECTIVE_DATE]</div>
+      <a href="mailto:blackbat.terminal@gmail.com">July 10, 2026</a>
+      <div class="note">
+        Questions about this policy or your data? Contact
+        <code>blackbat.terminal@gmail.com</code>.
+      </div>
+    </div>
+
+    <p class="section-label">// WHAT_WE_COLLECT</p>
+
+    <div class="faq">
+      <h3>Account information</h3>
+      <p>
+        When you sign up, we (via our authentication provider, Clerk) collect your
+        email address, and if you sign in with Apple or Google, the name and email
+        those providers share with us. If you sign up with a password, Clerk stores
+        it in hashed form — we never see or store your raw password.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>Profile &amp; learning data</h3>
+      <p>
+        Your username, chosen experience level and interests, XP, streaks, hearts,
+        quiz and lesson history, mastery/spaced-repetition progress, badges, and
+        placement assessment results. If you add a profile photo, it's uploaded to
+        our storage provider (Convex) and linked to your account.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>Friends &amp; social features</h3>
+      <p>
+        If you add friends in-app, we store the connection (who requested, who
+        accepted) and enough of each friend's profile (username, XP, streak, recent
+        activity) to display it to their friends.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>Purchases &amp; subscriptions</h3>
+      <p>
+        If you subscribe to Blackbat Pro or buy a certification pack, our payment
+        processor (RevenueCat, on top of the App Store) shares your subscription
+        status, product IDs, and transaction IDs with us so we can unlock premium
+        features. We do not receive or store your card number — that's handled
+        entirely by Apple.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>Notifications</h3>
+      <p>
+        If you enable reminders, we store a push notification token and your
+        reminder preferences (which reminders, what time) so we can send them.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>Camera &amp; photo library</h3>
+      <p>
+        Only requested if you choose to set a profile picture. We never access your
+        camera or photos unless you explicitly tap to do so.
+      </p>
+    </div>
+
+    <p class="section-label">// WHAT_WE_DON'T_COLLECT</p>
+
+    <div class="faq">
+      <p>
+        We do not collect your location, contacts, or microphone audio, and we
+        don't use any third-party analytics or crash-reporting SDK that profiles
+        you across other apps.
+      </p>
+    </div>
+
+    <p class="section-label">// HOW_WE_USE_YOUR_DATA</p>
+
+    <div class="faq">
+      <p>To run the app you're using: authenticate you, save your progress, calculate streaks/XP/leaderboards, unlock premium content you've paid for, show your friends what you're up to, and send reminders you've opted into. We do not sell your personal data, and we do not use it to build advertising profiles of you.</p>
+    </div>
+
+    <p class="section-label">// THIRD-PARTY_SERVICES</p>
+
+    <div class="faq">
+      <h3>Who we share data with, and why</h3>
+      <ul>
+        <li><strong>Clerk</strong> — authentication (email, name, login method)</li>
+        <li><strong>Convex</strong> — our database and file storage (everything listed above)</li>
+        <li><strong>RevenueCat</strong> &amp; <strong>Apple's App Store</strong> — subscription and purchase processing</li>
+        <li><strong>Google AdMob</strong> — serves ads to free-tier users (see below)</li>
+      </ul>
+      <p>
+        Each of these processes data only to provide their specific service to us —
+        none of them are permitted to use your Blackbat data for their own purposes.
+      </p>
+    </div>
+
+    <p class="section-label">// ADVERTISING</p>
+
+    <div class="faq">
+      <p>
+        Free accounts occasionally see rewarded ads (served by Google AdMob) to skip
+        a short cooldown. We request <strong>non-personalized ads only</strong> — we
+        don't ask for App Tracking Transparency permission, and we don't share your
+        Apple advertising identifier (IDFA) or any cross-app tracking data with
+        Google or anyone else. Blackbat Pro removes ads entirely.
+      </p>
+    </div>
+
+    <p class="section-label">// DATA_RETENTION_&amp;_DELETION</p>
+
+    <div class="faq">
+      <p>
+        You can permanently delete your account at any time from
+        <code>Profile &gt; Delete Account</code> — no email required. This
+        immediately and permanently removes your profile, progress, streaks, avatar,
+        and friend connections. We retain purchase and transaction records after
+        deletion, as required for financial recordkeeping and fraud prevention, but
+        these are no longer linked to an active, usable account.
+      </p>
+    </div>
+
+    <p class="section-label">// YOUR_RIGHTS</p>
+
+    <div class="faq">
+      <p>
+        Depending on where you live, you may have rights to access, correct, export,
+        or delete your personal data, and to object to certain uses of it. You can
+        exercise most of these yourself in-app (edit your profile, delete your
+        account); for anything else, email
+        <code>blackbat.terminal@gmail.com</code> and we'll respond within a
+        reasonable time. We do not sell personal data, so there is nothing to opt
+        out of on that front.
+      </p>
+    </div>
+
+    <p class="section-label">// CHILDREN'S_PRIVACY</p>
+
+    <div class="faq">
+      <p>
+        Blackbat is not directed at children under 13, and we do not knowingly
+        collect personal data from children under 13. If you believe a child has
+        created an account, contact us and we'll delete it.
+      </p>
+    </div>
+
+    <p class="section-label">// SECURITY</p>
+
+    <div class="faq">
+      <p>
+        Data is encrypted in transit (HTTPS/TLS) between the app and our backend.
+        Access to production data is limited to what's needed to operate the app.
+        No system is perfectly secure, but we don't store payment card data, and we
+        minimize what we collect in the first place.
+      </p>
+    </div>
+
+    <p class="section-label">// CHANGES_TO_THIS_POLICY</p>
+
+    <div class="faq">
+      <p>
+        If this policy changes materially, we'll update the effective date above.
+        Continued use of Blackbat after a change means you accept the updated
+        policy.
+      </p>
+    </div>
+  </main>
+
+  <footer>© 2026 BLACKBAT // ALL TRANSMISSIONS MONITORED</footer>
+</body>
+</html>
