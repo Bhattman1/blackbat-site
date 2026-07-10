@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blackbat — Support</title>
+  <meta name="description" content="Blackbat support: contact us, manage your subscription, delete your account, and find answers to common questions." />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --surface: #131313;
+      --green: #00ff41;
+      --green-dim: #0d2a12;
+      --amber: #ffb000;
+      --red: #ff003c;
+      --text: #e5e2e1;
+      --muted: #b9ccb2;
+      --dim: #5f6e59;
+      --edge: #3b4b37;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "JetBrains Mono", ui-monospace, monospace;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 100;
+      background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.14) 0 1px, transparent 1px 3px);
+    }
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 99;
+      background: radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.5) 100%);
+    }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+
+    header {
+      border-bottom: 1px solid var(--edge);
+      padding: 14px 0;
+      position: sticky;
+      top: 0;
+      background: rgba(10, 10, 10, 0.92);
+      backdrop-filter: blur(6px);
+      z-index: 50;
+    }
+    header .wrap { display: flex; justify-content: space-between; align-items: center; }
+    .brand {
+      font-family: "Space Mono", monospace;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--text);
+      text-decoration: none;
+      text-shadow: 0 0 6px rgba(229, 226, 225, 0.55);
+      font-size: 15px;
+    }
+    .back-link {
+      font-size: 12px;
+      letter-spacing: 0.5px;
+      color: var(--green);
+      text-decoration: none;
+    }
+    .back-link:hover { text-decoration: underline; }
+
+    main { padding: 48px 0 80px; }
+    h1 {
+      font-family: "Space Mono", monospace;
+      font-size: clamp(26px, 5vw, 36px);
+      color: var(--green);
+      text-shadow: 0 0 12px rgba(0, 255, 65, 0.5);
+      margin-bottom: 10px;
+    }
+    .lede {
+      color: var(--muted);
+      margin-bottom: 40px;
+      font-size: 14px;
+    }
+
+    .contact-pane {
+      border: 1px solid var(--green);
+      background: rgba(13, 42, 18, 0.18);
+      padding: 24px;
+      margin-bottom: 40px;
+    }
+    .contact-pane .label {
+      font-size: 11px;
+      letter-spacing: 1.4px;
+      color: var(--dim);
+      margin-bottom: 10px;
+    }
+    .contact-pane a {
+      color: var(--green);
+      font-weight: 700;
+      font-size: 17px;
+      text-decoration: none;
+    }
+    .contact-pane a:hover { text-decoration: underline; }
+    .contact-pane .note {
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .section-label {
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: var(--amber);
+      margin: 40px 0 18px;
+    }
+    .faq {
+      border: 1px solid var(--edge);
+      background: var(--surface);
+      padding: 20px 22px;
+      margin-bottom: 14px;
+    }
+    .faq h3 {
+      font-size: 14px;
+      color: var(--green);
+      font-family: "Space Mono", monospace;
+      margin-bottom: 8px;
+    }
+    .faq p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .faq code {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.06);
+      padding: 1px 5px;
+      font-size: 12px;
+    }
+
+    footer {
+      margin: 60px 0 20px;
+      text-align: center;
+      color: var(--dim);
+      font-size: 11px;
+      letter-spacing: 1.2px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <a class="brand" href="index.html">&gt; BLACKBAT</a>
+      <a class="back-link" href="index.html">&lt; BACK TO SITE</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h1>SUPPORT</h1>
+    <p class="lede">&gt; Need help with Blackbat? Start here, or reach out directly.</p>
+
+    <div class="contact-pane">
+      <div class="label">[CONTACT]</div>
+      <a href="mailto:milindbhatt123@gmail.com">milindbhatt123@gmail.com</a>
+      <div class="note">We aim to respond within 2 business days.</div>
+    </div>
+
+    <p class="section-label">// COMMON_QUESTIONS</p>
+
+    <div class="faq">
+      <h3>How do I delete my account?</h3>
+      <p>
+        Open Blackbat &gt; <code>Profile</code> &gt; tap the settings icon &gt;
+        <code>Delete Account</code> (also available as a dedicated button at the
+        bottom of the Profile screen). You'll be asked to type a confirmation
+        phrase before the deletion goes through. This permanently removes your
+        account, progress, streaks, and friend connections and cannot be undone.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>How do I manage or cancel my subscription?</h3>
+      <p>
+        Subscriptions are billed through the App Store, so they're managed there:
+        open the <code>Settings</code> app on your iPhone &gt; tap your name at the
+        top &gt; <code>Subscriptions</code> &gt; select Blackbat. You can cancel or
+        change your plan at any time; access continues until the end of the
+        current billing period.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>I upgraded but it's still showing as free. What do I do?</h3>
+      <p>
+        Open Blackbat &gt; <code>Profile</code> &gt; settings icon &gt;
+        <code>Restore Purchases</code>. This re-syncs your subscription status
+        from the App Store. If it still doesn't update, email us with the email
+        address on your Blackbat account and we'll look into it.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>How do rewarded ads and hearts work?</h3>
+      <p>
+        Free accounts occasionally hit a short cooldown between question sets —
+        you can skip it by watching a rewarded ad, or just wait it out. Blackbat
+        Pro removes ads and cooldowns entirely, and you never lose a heart for a
+        wrong answer.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>I found a bug or have feedback.</h3>
+      <p>
+        Email us at the address above with a short description of what happened
+        and, if possible, a screenshot. We read every message.
+      </p>
+    </div>
+  </main>
+
+  <footer>© 2026 BLACKBAT // ALL TRANSMISSIONS MONITORED</footer>
+</body>
+</html>
