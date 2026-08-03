@@ -302,8 +302,8 @@
 
         <div class="store">
           <div class="store-label"><span class="ico">iOS</span> APP STORE</div>
-          <a class="btn primary" id="ios-cta" href="https://apps.apple.com/au/app/blackbat/id6788403863">&gt; [ DOWNLOAD_NOW ]</a>
-          <p class="warn-note" id="inapp-hint" hidden>! In-app browser detected. If a link opens as a web page instead of the store, tap the &#8943; menu and choose "Open in browser".</p>
+          <a class="btn primary" href="https://apps.apple.com/au/app/blackbat/id6788403863">&gt; [ DOWNLOAD_NOW ]</a>
+          <p class="warn-note">! On iPhone, if this opens as a web page instead of the App Store, hold the button down and choose "Open link".</p>
         </div>
 
         <div class="store">
@@ -376,35 +376,6 @@
     // The waitlist form was replaced by the store links now that Blackbat has
     // shipped. Its handler lived here — the /waitlist endpoint and its CORS
     // allowlist are still live if the form is ever brought back.
-
-    // Most of this traffic arrives from Instagram, whose in-app browser
-    // swallows Universal Links: an apps.apple.com tap renders the web page
-    // instead of handing off to the App Store, and the user has to long-press
-    // and pick "Open link" to escape. The itms-apps: scheme isn't a Universal
-    // Link, so the webview hands it straight to the App Store. If nothing
-    // claims the scheme we fall back to the original URL, which keeps desktop
-    // and any non-iOS browser working exactly as before.
-    (function () {
-      var link = document.getElementById("ios-cta");
-      if (!link || !/iPad|iPhone|iPod/.test(navigator.userAgent)) return;
-
-      link.addEventListener("click", function (e) {
-        var web = link.href;
-        e.preventDefault();
-        // If the scheme is honoured the page is backgrounded before this
-        // fires; pagehide cancels it so we never double-navigate.
-        var fallback = setTimeout(function () { window.location.href = web; }, 800);
-        window.addEventListener("pagehide", function () { clearTimeout(fallback); }, { once: true });
-        window.location.href = web.replace(/^https:/, "itms-apps:");
-      });
-    })();
-
-    // Surface the escape hatch only where it applies, so everyone else isn't
-    // told to work around a problem they don't have.
-    (function () {
-      var hint = document.getElementById("inapp-hint");
-      if (hint && /Instagram|FBAN|FBAV/.test(navigator.userAgent)) hint.hidden = false;
-    })();
   </script>
 </body>
 </html>
