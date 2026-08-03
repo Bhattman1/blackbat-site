@@ -4,10 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Blackbat — Learn cybersecurity the fun way</title>
-  <meta name="description" content="Blackbat Terminal: a Duolingo-style cybersecurity trainer. Daily missions, streaks, rankings, and certification packs. Join the waitlist." />
+  <meta name="description" content="Blackbat Terminal: a Duolingo-style cybersecurity trainer. Daily missions, streaks, rankings, and certification packs. Out now on the App Store, Android in closed testing." />
   <link rel="icon" type="image/png" href="assets/favicon.png" />
   <meta property="og:title" content="Blackbat — Learn cybersecurity the fun way" />
-  <meta property="og:description" content="Five minutes a day. Daily missions, streaks, rankings, cert packs. Join the waitlist." />
+  <meta property="og:description" content="Five minutes a day. Daily missions, streaks, rankings, cert packs. Out now on iOS — Android testing open." />
   <meta property="og:image" content="assets/og-image.png" />
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#0a0a0a" />
@@ -169,6 +169,59 @@
     .form-status.warn { color: var(--amber); }
     .form-status.err { color: var(--red); }
 
+    /* Store blocks */
+    .store + .store { margin-top: 26px; padding-top: 24px; border-top: 1px solid var(--edge); }
+    .store-label {
+      display: flex; align-items: center; gap: 9px;
+      font-size: 11px; letter-spacing: 1.6px; color: var(--dim);
+      margin-bottom: 12px;
+    }
+    .store-label .ico {
+      color: var(--amber); border: 1px solid var(--amber);
+      padding: 2px 7px; font-size: 10px; letter-spacing: 1px;
+    }
+    .store-note { font-size: 12px; color: var(--muted); margin-bottom: 14px; line-height: 1.55; }
+    /* The wrong-Google-account mistake is the main reason testers bounce, so
+       it gets amber weight rather than sitting in muted body copy. */
+    .warn-note {
+      font-size: 12px; color: var(--amber); line-height: 1.55;
+      margin-top: 14px; padding-left: 12px;
+      border-left: 2px solid var(--amber);
+    }
+    /* Buttons are the whole point on mobile — full width, thumb-sized, no wrap. */
+    .btn {
+      display: flex; align-items: center; justify-content: center;
+      width: 100%; min-height: 56px;
+      border: 1px solid var(--green); color: var(--green);
+      font-family: inherit; font-weight: 700; font-size: 14px; letter-spacing: 1px;
+      text-decoration: none; text-align: center;
+      padding: 14px 16px;
+      transition: background 0.12s, color 0.12s, transform 0.06s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn + .btn { margin-top: 10px; }
+    .btn:hover, .btn:focus-visible { background: var(--green); color: #0a0a0a; }
+    .btn:active { transform: translateY(1px); }
+    .btn.primary {
+      background: var(--green); color: #0a0a0a;
+      box-shadow: 0 0 26px rgba(0, 255, 65, 0.22);
+    }
+    .btn.primary:hover, .btn.primary:focus-visible { background: #5bff86; color: #0a0a0a; }
+    .status-chip.live { color: var(--green); border-color: var(--green); }
+    .status-chip.live .dot { background: var(--green); }
+
+    /* Phone: most traffic arrives from the Instagram in-app browser. */
+    @media (max-width: 560px) {
+      .wrap { padding: 0 16px; }
+      .hero { padding: 44px 0 28px; }
+      .bat { width: 138px; height: 138px; }
+      .pane { padding: 22px 18px; margin-top: 28px; }
+      .subtitle { font-size: 14px; }
+      .section-label { margin: 60px 0 22px; }
+      .log { margin-top: 60px; padding: 18px 16px; font-size: 12px; }
+      .btn { font-size: 13px; letter-spacing: 0.6px; }
+    }
+
     /* Features */
     .section-label {
       font-size: 12px; letter-spacing: 2px; color: var(--amber);
@@ -232,7 +285,7 @@
   <header>
     <div class="wrap">
       <div class="brand">&gt; BLACKBAT TERMINAL</div>
-      <div class="status-chip"><span class="dot"></span>PRE-LAUNCH</div>
+      <div class="status-chip live"><span class="dot"></span>LIVE</div>
     </div>
   </header>
 
@@ -242,22 +295,24 @@
       <h1>BLACKBAT</h1>
       <p class="subtitle"><span id="typed"></span><span class="cursor">█</span></p>
 
-      <div class="pane" id="waitlist">
-        <div class="pane-header"><span>[SYS_BOOT]</span><span>ACCESS_QUEUE</span></div>
-        <div class="pane-title">&gt; REQUEST_EARLY_ACCESS</div>
-        <div class="pane-sub">Be first through the door when Blackbat goes live on the App Store.</div>
-        <form id="form" novalidate>
-          <div class="row">
-            <div class="input-wrap">
-              <span>&gt;&nbsp;</span>
-              <input id="email" type="email" name="email" placeholder="OPERATIVE@EMAIL.COM" autocomplete="email" required />
-            </div>
-            <button id="submit" type="submit">[JOIN_WAITLIST]</button>
-          </div>
-          <!-- honeypot -->
-          <input class="hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" />
-          <p class="form-status" id="status" role="status"></p>
-        </form>
+      <div class="pane" id="get">
+        <div class="pane-header"><span>[SYS_ONLINE]</span><span>DEPLOY</span></div>
+        <div class="pane-title">&gt; OUT_NOW</div>
+        <div class="pane-sub">Blackbat is live on the App Store. Android is in closed testing — anyone can join, it just takes three steps.</div>
+
+        <div class="store">
+          <div class="store-label"><span class="ico">iOS</span> APP STORE</div>
+          <a class="btn primary" href="https://apps.apple.com/au/app/blackbat/id6788403863">&gt; [ DOWNLOAD_NOW ]</a>
+        </div>
+
+        <div class="store">
+          <div class="store-label"><span class="ico">AND</span> GOOGLE PLAY · CLOSED BETA</div>
+          <p class="store-note">Three steps, in this order. The Play listing stays hidden until the first two are done — if you jump straight to step 3 you'll get "item not found".</p>
+          <a class="btn" href="https://groups.google.com/g/blackbat-testers">&gt; [ 1 · JOIN_GROUP ]</a>
+          <a class="btn" href="https://play.google.com/apps/testing/com.milindbhatt.blackbat">&gt; [ 2 · OPT_IN ]</a>
+          <a class="btn" href="https://play.google.com/store/apps/details?id=com.milindbhatt.blackbat">&gt; [ 3 · INSTALL ]</a>
+          <p class="warn-note">! Use the same Google account on your phone that you joined the group with — otherwise Play will say the app isn't available.</p>
+        </div>
       </div>
     </section>
 
@@ -292,7 +347,8 @@
       <span class="ln">&gt; boot_sequence: <span class="g">OK</span></span>
       <span class="ln">&gt; question_bank: <span class="g">LOADED</span> — free forever, no paywall on core content</span>
       <span class="ln">&gt; forced_ads_during_quizzes: <span class="g">DISABLED</span></span>
-      <span class="ln">&gt; launch_window: <span class="a">CLASSIFIED</span> — join the queue for the signal</span>
+      <span class="ln">&gt; ios_build: <span class="g">DEPLOYED</span> — live on the App Store</span>
+      <span class="ln">&gt; android_build: <span class="a">CLOSED_TEST</span> — open to all, join above</span>
     </div>
   </main>
 
@@ -316,61 +372,9 @@
       })();
     })();
 
-    // Waitlist form
-    (function () {
-      var ENDPOINT = "https://uncommon-chinchilla-687.convex.site/waitlist";
-      var form = document.getElementById("form");
-      var email = document.getElementById("email");
-      var btn = document.getElementById("submit");
-      var status = document.getElementById("status");
-      // Page-load timestamp, sent back so the server can reject submissions
-      // that arrive faster than a human could plausibly fill the form.
-      var renderedAt = Date.now();
-
-      function setStatus(cls, msg) {
-        status.className = "form-status " + cls;
-        status.textContent = msg;
-      }
-
-      form.addEventListener("submit", async function (e) {
-        e.preventDefault();
-        var value = email.value.trim();
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value)) {
-          setStatus("err", "> ERROR: enter a valid email address.");
-          return;
-        }
-        btn.disabled = true;
-        btn.textContent = "[TRANSMITTING…]";
-        try {
-          var res = await fetch(ENDPOINT, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              email: value,
-              source: "site",
-              company: form.elements.company.value,
-              renderedAt: renderedAt,
-            }),
-          });
-          var data = await res.json();
-          if (res.status === 429 || (data && data.error === "rate_limited")) {
-            setStatus("err", "> ERROR: too many attempts. Wait a few minutes and retry.");
-          } else if (data.ok && data.duplicate) {
-            setStatus("warn", "> Already in the queue. Patience, operative.");
-          } else if (data.ok) {
-            setStatus("ok", "> ACCESS_REQUEST_LOGGED. Stand by for the signal.");
-            form.reset();
-          } else {
-            setStatus("err", "> ERROR: " + (data.error === "invalid_email" ? "enter a valid email address." : "transmission failed. Try again."));
-          }
-        } catch (err) {
-          setStatus("err", "> ERROR: transmission failed. Check your connection and retry.");
-        } finally {
-          btn.disabled = false;
-          btn.textContent = "[JOIN_WAITLIST]";
-        }
-      });
-    })();
+    // The waitlist form was replaced by the store links now that Blackbat has
+    // shipped. Its handler lived here — the /waitlist endpoint and its CORS
+    // allowlist are still live if the form is ever brought back.
   </script>
 </body>
 </html>
