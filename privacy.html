@@ -104,10 +104,15 @@
       color: var(--dim);
       margin-bottom: 10px;
     }
-    .contact-pane a {
+    .contact-pane .date {
+      display: block;
       color: var(--green);
       font-weight: 700;
       font-size: 17px;
+    }
+    .contact-pane a {
+      color: var(--green);
+      font-weight: 700;
       text-decoration: none;
     }
     .contact-pane a:hover { text-decoration: underline; }
@@ -177,10 +182,13 @@
 
     <div class="contact-pane">
       <div class="label">[EFFECTIVE_DATE]</div>
-      <a href="mailto:blackbat.terminal@gmail.com">July 10, 2026</a>
+      <span class="date">August 11, 2026</span>
       <div class="note">
-        Questions about this policy or your data? Contact
-        <code>blackbat.terminal@gmail.com</code>.
+        Blackbat is operated by Milind Bhatt. For any question about this policy,
+        your data, or to exercise the rights described below, contact
+        <a href="mailto:blackbat.terminal@gmail.com">blackbat.terminal@gmail.com</a>.
+        For the purposes of the GDPR, we are the data controller for the personal
+        data described here.
       </div>
     </div>
 
@@ -201,8 +209,8 @@
       <p>
         Your username, chosen experience level and interests, XP, streaks, hearts,
         quiz and lesson history, mastery/spaced-repetition progress, badges, and
-        placement assessment results. If you add a profile photo, it's uploaded to
-        our storage provider (Convex) and linked to your account.
+        placement assessment results, and the avatar you picked. All of this is
+        stored by Convex, our database provider, and linked to your account.
       </p>
     </div>
 
@@ -271,11 +279,20 @@
 
     <div class="faq">
       <p>
-        Free accounts occasionally see rewarded ads (served by Google AdMob) to skip
-        a short cooldown. We request <strong>non-personalized ads only</strong> — we
-        don't ask for App Tracking Transparency permission, and we don't share your
-        Apple advertising identifier (IDFA) or any cross-app tracking data with
+        Free accounts see two kinds of ads, both served by Google AdMob: a banner
+        below some practice questions, and optional rewarded ads you can watch to
+        skip a short cooldown. We request <strong>non-personalized ads only</strong>
+        — we don't ask for App Tracking Transparency permission, and we don't share
+        your Apple advertising identifier (IDFA) or any cross-app tracking data with
         Google or anyone else. Blackbat Pro removes ads entirely.
+      </p>
+      <p>
+        Non-personalized ads still involve storing and reading an identifier on your
+        device. If you're in the EEA, the UK, or a US state with a comparable
+        privacy law, we show you Google's consent form (via the Google User
+        Messaging Platform) before any ad is requested, and we don't request ads
+        unless that form has been completed. You can reopen it and change your
+        answer at any time from <code>Settings &gt; Ad privacy choices</code>.
       </p>
     </div>
 
@@ -290,19 +307,55 @@
         deletion, as required for financial recordkeeping and fraud prevention, but
         these are no longer linked to an active, usable account.
       </p>
+      <p>
+        While your account is open we keep your profile and learning data so the app
+        can work — there's no fixed expiry, because streaks and mastery history are
+        the product. Purchase and transaction records are kept for 7 years to meet
+        tax and financial recordkeeping obligations. Push notification tokens are
+        discarded once they stop being valid or you turn reminders off. Backups
+        containing deleted data roll off within 30 days.
+      </p>
+    </div>
+
+    <p class="section-label">// LEGAL_BASIS_&amp;_WHERE_DATA_GOES</p>
+
+    <div class="faq">
+      <h3>Why we're allowed to process it (GDPR Art. 6)</h3>
+      <ul>
+        <li><strong>Contract</strong> — your account, progress, purchases, friends and leaderboard entries: we can't provide the app you asked for without them.</li>
+        <li><strong>Consent</strong> — push notifications, appearing on public leaderboards, and ads consent where required. You can withdraw any of these in-app at any time, without losing access to the rest of Blackbat.</li>
+        <li><strong>Legitimate interests</strong> — keeping the service secure, preventing abuse and fraud, and keeping the financial records above.</li>
+      </ul>
+    </div>
+
+    <div class="faq">
+      <h3>International transfers</h3>
+      <p>
+        Blackbat is operated from Australia, and our providers (Clerk, Convex,
+        RevenueCat, Google) process data on servers in the United States and other
+        countries. Where data leaves the EEA or UK, those transfers rely on the
+        European Commission's Standard Contractual Clauses (and the UK Addendum),
+        which each of these providers has in place with us.
+      </p>
     </div>
 
     <p class="section-label">// YOUR_RIGHTS</p>
 
     <div class="faq">
       <p>
-        Depending on where you live, you may have rights to access, correct, export,
-        or delete your personal data, and to object to certain uses of it. You can
-        exercise most of these yourself in-app (edit your profile, delete your
-        account); for anything else, email
-        <code>blackbat.terminal@gmail.com</code> and we'll respond within a
-        reasonable time. We do not sell personal data, so there is nothing to opt
-        out of on that front.
+        Depending on where you live, you have rights to access a copy of your data,
+        correct it, export it in a portable form, delete it, restrict or object to
+        certain uses of it, and withdraw any consent you've given. You can exercise
+        most of these yourself in-app (edit your profile, change notification and
+        leaderboard settings, delete your account); for anything else, email
+        <code>blackbat.terminal@gmail.com</code> and we'll respond within 30 days.
+      </p>
+      <p>
+        We do not sell personal data and we do not share it for cross-context
+        behavioural advertising, so there is nothing to opt out of under the CCPA/CPRA
+        on either front. We won't discriminate against you for exercising any of these
+        rights. If you're in the EEA or UK and you think we've got something wrong,
+        you also have the right to complain to your local data protection authority.
       </p>
     </div>
 
