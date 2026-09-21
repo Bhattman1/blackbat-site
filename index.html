@@ -671,9 +671,30 @@
     .dt-header__actions {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 12px;
       flex: 0 0 auto;
     }
+    /* Store badges in the header: the download is the conversion, so it
+       sits at the top instead of behind a "Get started" scroll. The Play
+       badge PNG carries transparent padding, so it renders taller to match
+       the App Store badge's visible height (same trick as .store-badge). */
+    .dt-header__badge {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      transition: transform 0.12s ease, filter 0.12s ease;
+    }
+    .dt-header__badge:hover,
+    .dt-header__badge:focus-visible {
+      transform: translateY(-1px);
+      filter: brightness(1.06);
+    }
+    .dt-header__badge img {
+      height: 40px;
+      width: auto;
+      display: block;
+    }
+    .dt-header__badge--play img { height: 60px; }
     .dt-btn {
       display: inline-flex;
       align-items: center;
@@ -1120,6 +1141,13 @@
     @media (min-width: 921px) and (max-width: 1179px) {
       .dt-nav__extra { display: none; }
     }
+    /* Narrow desktop: the badges are the "Get the app" link, so drop the
+       redundant nav item and shrink the badges rather than clip them. */
+    @media (min-width: 921px) and (max-width: 1099px) {
+      .dt-nav a[href="#get-the-app"] { display: none; }
+      .dt-header__badge img { height: 34px; }
+      .dt-header__badge--play img { height: 51px; }
+    }
     @media (min-width: 921px) and (max-width: 999px) {
       .dt-btn--ghost { display: none; }
     }
@@ -1150,7 +1178,12 @@
         <a class="dt-nav__extra" href="support.html">Support</a>
       </nav>
       <div class="dt-header__actions">
-        <a class="dt-btn dt-btn--green" href="#get-the-app">Get started free</a>
+        <a class="dt-header__badge" href="https://apps.apple.com/app/blackbat/id6788403863" aria-label="Download Blackbat from the App Store">
+          <img src="assets/Download From App Store.png" alt="Download on the App Store" />
+        </a>
+        <a class="dt-header__badge dt-header__badge--play" href="https://play.google.com/store/apps/details?id=com.milindbhatt.blackbat" aria-label="Get Blackbat on Google Play">
+          <img src="assets/Get It On Playstore.png" alt="Get it on Google Play" />
+        </a>
       </div>
     </div>
   </header>
