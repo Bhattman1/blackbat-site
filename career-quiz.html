@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Career Quiz | Blackbat Terminal</title>
+  <meta name="description" content="Find your cybersecurity career path with a short Blackbat Terminal assessment tailored for beginners and career changers." />
+  <link rel="canonical" href="https://blackbatterminal.com/career-quiz.html" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <meta name="theme-color" content="#050505" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/career-pages.css" />
+</head>
+<body>
+  <div class="bb-page">
+    <p class="bb-corner-note" aria-hidden="true">BUILD YOUR SKILLS &gt; SECURE WHAT'S NEXT</p>
+
+    <header class="bb-header">
+      <div class="bb-header__inner">
+        <a class="bb-logo" href="index.html">
+          <img src="assets/bat.png" alt="" width="40" height="40" />
+          <span class="bb-logo__text">BLACK BAT<span>Terminal</span></span>
+        </a>
+        <nav class="bb-nav" aria-label="Primary">
+          <a href="index.html">Learn</a>
+          <a href="roadmap.html">Roadmap</a>
+          <a href="career-quiz.html" aria-current="page">Career</a>
+          <a href="https://www.reddit.com/user/blackbatterminal/" target="_blank" rel="noopener noreferrer">Community</a>
+        </nav>
+        <div class="bb-header__actions">
+          <a class="bb-header__badge" href="https://apps.apple.com/app/blackbat/id6788403863" aria-label="Download on the App Store">
+            <img src="assets/Download From App Store.png" alt="" />
+          </a>
+          <a class="bb-header__badge bb-header__badge--play" href="https://play.google.com/store/apps/details?id=com.milindbhatt.blackbat" aria-label="Get it on Google Play">
+            <img src="assets/Get It On Playstore.png" alt="" />
+          </a>
+        </div>
+        <button class="bb-menu-btn" type="button" data-menu-toggle aria-expanded="false" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="bb-main">
+      <div class="bb-wrap bb-enter">
+        <div id="quiz-shell" class="bb-quiz-shell" aria-live="polite"></div>
+
+        <footer class="bb-quiz-footer bb-enter bb-enter--delay-1">
+          <div class="bb-progress" id="quiz-progress" role="progressbar" aria-valuemin="1" aria-valuemax="5" aria-valuenow="1"></div>
+          <div class="bb-quiz-actions">
+            <button type="button" class="bb-btn bb-btn--ghost" id="quiz-prev" disabled>Previous</button>
+            <button type="button" class="bb-btn bb-btn--primary" id="quiz-next" disabled>
+              Next <span class="bb-arrow" aria-hidden="true">→</span>
+            </button>
+          </div>
+        </footer>
+      </div>
+    </main>
+
+    <footer class="bb-footer">
+      <nav class="bb-footer__nav" aria-label="Footer">
+        <a href="index.html">Home</a>
+        <a href="career-quiz.html">Career quiz</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="support.html">Support</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+      <p class="bb-footer__copy">© 2026 BLACKBAT // ALL TRANSMISSIONS MONITORED</p>
+    </footer>
+  </div>
+
+  <script src="js/icons.js"></script>
+  <script src="js/career-data.js"></script>
+  <script src="js/career-quiz.js"></script>
+</body>
+</html>
