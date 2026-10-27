@@ -17,391 +17,295 @@
   <meta name="twitter:title" content="Blackbat — Privacy Policy" />
   <meta name="twitter:description" content="Blackbat privacy policy: what data we collect, why, who we share it with, and how to delete your account." />
   <meta name="twitter:image" content="https://blackbatterminal.com/assets/og-image.png" />
-  <meta name="theme-color" content="#0a0a0a" />
+  <meta name="theme-color" content="#050505" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --bg: #0a0a0a;
-      --surface: #131313;
-      --green: #00ff41;
-      --green-dim: #0d2a12;
-      --amber: #ffb000;
-      --red: #ff003c;
-      --text: #e5e2e1;
-      --muted: #b9ccb2;
-      --dim: #5f6e59;
-      --edge: #3b4b37;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: "JetBrains Mono", ui-monospace, monospace;
-      font-size: 16px;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 100;
-      background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.14) 0 1px, transparent 1px 3px);
-    }
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 99;
-      background: radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.5) 100%);
-    }
-    .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
-
-    header {
-      border-bottom: 1px solid var(--edge);
-      padding: 14px 0;
-      position: sticky;
-      top: 0;
-      background: rgba(10, 10, 10, 0.92);
-      backdrop-filter: blur(6px);
-      z-index: 50;
-    }
-    header .wrap { display: flex; justify-content: space-between; align-items: center; }
-    .brand {
-      font-family: "Space Mono", monospace;
-      font-weight: 700;
-      letter-spacing: 1px;
-      color: var(--text);
-      text-decoration: none;
-      text-shadow: 0 0 6px rgba(229, 226, 225, 0.55);
-      font-size: 15px;
-    }
-    .back-link {
-      font-size: 12px;
-      letter-spacing: 0.5px;
-      color: var(--green);
-      text-decoration: none;
-    }
-    .back-link:hover { text-decoration: underline; }
-
-    main { padding: 48px 0 80px; }
-    h1 {
-      font-family: "Space Mono", monospace;
-      font-size: clamp(26px, 5vw, 36px);
-      color: var(--green);
-      text-shadow: 0 0 12px rgba(0, 255, 65, 0.5);
-      margin-bottom: 10px;
-    }
-    .lede {
-      color: var(--muted);
-      margin-bottom: 40px;
-      font-size: 14px;
-    }
-
-    .contact-pane {
-      border: 1px solid var(--green);
-      background: rgba(13, 42, 18, 0.18);
-      padding: 24px;
-      margin-bottom: 40px;
-    }
-    .contact-pane .label {
-      font-size: 11px;
-      letter-spacing: 1.4px;
-      color: var(--dim);
-      margin-bottom: 10px;
-    }
-    .contact-pane .date {
-      display: block;
-      color: var(--green);
-      font-weight: 700;
-      font-size: 17px;
-    }
-    .contact-pane a {
-      color: var(--green);
-      font-weight: 700;
-      text-decoration: none;
-    }
-    .contact-pane a:hover { text-decoration: underline; }
-    .contact-pane .note {
-      margin-top: 10px;
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    .section-label {
-      font-size: 12px;
-      letter-spacing: 2px;
-      color: var(--amber);
-      margin: 40px 0 18px;
-    }
-    .faq {
-      border: 1px solid var(--edge);
-      background: var(--surface);
-      padding: 20px 22px;
-      margin-bottom: 14px;
-    }
-    .faq h3 {
-      font-size: 14px;
-      color: var(--green);
-      font-family: "Space Mono", monospace;
-      margin-bottom: 8px;
-    }
-    .faq p {
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-    .faq p + p { margin-top: 10px; }
-    .faq ul {
-      margin: 8px 0 0 18px;
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-    .faq code {
-      color: var(--text);
-      background: rgba(255, 255, 255, 0.06);
-      padding: 1px 5px;
-      font-size: 12px;
-    }
-
-    footer {
-      margin: 60px 0 20px;
-      text-align: center;
-      color: var(--dim);
-      font-size: 11px;
-      letter-spacing: 1.2px;
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/site.css" />
 </head>
 <body>
-  <header>
-    <div class="wrap">
-      <a class="brand" href="index.html">&gt; BLACKBAT</a>
-      <a class="back-link" href="support.html">&lt; SUPPORT</a>
-    </div>
-  </header>
-
-  <main class="wrap">
-    <h1>PRIVACY_POLICY</h1>
-    <p class="lede">&gt; What we collect, why we collect it, and how to make it go away.</p>
-
-    <div class="contact-pane">
-      <div class="label">[EFFECTIVE_DATE]</div>
-      <span class="date">August 11, 2026</span>
-      <div class="note">
-        Blackbat is operated by Milind Bhatt and Owen Chan. For any question about this policy,
-        your data, or to exercise the rights described below, contact
-        <a href="mailto:blackbat.terminal@gmail.com">blackbat.terminal@gmail.com</a>.
-        For the purposes of the GDPR, we are the data controller for the personal
-        data described here.
+  <div class="bb-page">
+    <a class="bb-skip" href="#main">Skip to content</a>
+    <header class="bb-header">
+      <div class="bb-header__inner">
+        <a class="bb-logo" href="index.html" aria-label="Blackbat Terminal home">
+          <img src="assets/bat.png" alt="" width="40" height="40" />
+          <span class="bb-logo__text">BLACK BAT<span>Terminal</span></span>
+        </a>
+        <nav class="bb-nav" id="site-nav" aria-label="Primary">
+          <a href="index.html#features">Features</a>
+          <a href="roadmap.html">Roadmap</a>
+          <a href="career-quiz.html">Career quiz</a>
+          <a href="index.html#faq">FAQ</a>
+          <a href="support.html" aria-current="page">Support</a>
+          <div class="bb-nav__stores">
+            <a class="bb-header__badge" href="https://apps.apple.com/app/blackbat/id6788403863" aria-label="Download Blackbat on the App Store">
+              <img src="assets/Download From App Store.png" alt="" width="498" height="167" />
+            </a>
+            <a class="bb-header__badge bb-header__badge--play" href="https://play.google.com/store/apps/details?id=com.milindbhatt.blackbat" aria-label="Get Blackbat on Google Play">
+              <img src="assets/Get It On Playstore.png" alt="" width="646" height="250" />
+            </a>
+          </div>
+        </nav>
+        <div class="bb-header__actions">
+          <a class="bb-header__badge" href="https://apps.apple.com/app/blackbat/id6788403863" aria-label="Download Blackbat on the App Store">
+            <img src="assets/Download From App Store.png" alt="" width="498" height="167" />
+          </a>
+          <a class="bb-header__badge bb-header__badge--play" href="https://play.google.com/store/apps/details?id=com.milindbhatt.blackbat" aria-label="Get Blackbat on Google Play">
+            <img src="assets/Get It On Playstore.png" alt="" width="646" height="250" />
+          </a>
+        </div>
+        <button class="bb-menu-btn" type="button" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
       </div>
-    </div>
+    </header>
 
-    <p class="section-label">// WHAT_WE_COLLECT</p>
+    <main class="bb-main" id="main">
+      <div class="bb-wrap bb-doc">
+        <p class="bb-eyebrow">// LEGAL</p>
+        <h1>Privacy policy</h1>
+        <p class="lede">What we collect, why we collect it, and how to make it go away.</p>
 
-    <div class="faq">
-      <h3>Account information</h3>
-      <p>
-        When you sign up, we (via our authentication provider, Clerk) collect your
-        email address, and if you sign in with Apple or Google, the name and email
-        those providers share with us. If you sign up with a password, Clerk stores
-        it in hashed form — we never see or store your raw password.
-      </p>
-    </div>
+        <div class="contact-pane">
+          <div class="label">EFFECTIVE DATE</div>
+          <span class="date">August 11, 2026</span>
+          <div class="note">
+            Blackbat is operated by Milind Bhatt and Owen Chan. For any question about this policy,
+            your data, or to exercise the rights described below, contact
+            <a href="mailto:blackbat.terminal@gmail.com">blackbat.terminal@gmail.com</a>.
+            For the purposes of the GDPR, we are the data controller for the personal
+            data described here.
+          </div>
+        </div>
 
-    <div class="faq">
-      <h3>Profile &amp; learning data</h3>
-      <p>
-        Your username, chosen experience level and interests, XP, streaks, hearts,
-        quiz and lesson history, mastery/spaced-repetition progress, badges, and
-        placement assessment results, and the avatar you picked. All of this is
-        stored by Convex, our database provider, and linked to your account.
-      </p>
-    </div>
+        <p class="section-label">// WHAT_WE_COLLECT</p>
 
-    <div class="faq">
-      <h3>Friends &amp; social features</h3>
-      <p>
-        If you add friends in-app, we store the connection (who requested, who
-        accepted) and enough of each friend's profile (username, XP, streak, recent
-        activity) to display it to their friends.
-      </p>
-    </div>
+        <div class="faq">
+          <h3>Account information</h3>
+          <p>
+            When you sign up, we (via our authentication provider, Clerk) collect your
+            email address, and if you sign in with Apple or Google, the name and email
+            those providers share with us. If you sign up with a password, Clerk stores
+            it in hashed form — we never see or store your raw password.
+          </p>
+        </div>
 
-    <div class="faq">
-      <h3>Purchases &amp; subscriptions</h3>
-      <p>
-        If you subscribe to Blackbat Pro or buy a certification pack, our payment
-        processor (RevenueCat, on top of the App Store) shares your subscription
-        status, product IDs, and transaction IDs with us so we can unlock premium
-        features. We do not receive or store your card number — that's handled
-        entirely by Apple.
-      </p>
-    </div>
+        <div class="faq">
+          <h3>Profile &amp; learning data</h3>
+          <p>
+            Your username, chosen experience level and interests, XP, streaks, hearts,
+            quiz and lesson history, mastery/spaced-repetition progress, badges, and
+            placement assessment results, and the avatar you picked. All of this is
+            stored by Convex, our database provider, and linked to your account.
+          </p>
+        </div>
 
-    <div class="faq">
-      <h3>Notifications</h3>
-      <p>
-        If you enable reminders, we store a push notification token and your
-        reminder preferences (which reminders, what time) so we can send them.
-      </p>
-    </div>
+        <div class="faq">
+          <h3>Friends &amp; social features</h3>
+          <p>
+            If you add friends in-app, we store the connection (who requested, who
+            accepted) and enough of each friend's profile (username, XP, streak, recent
+            activity) to display it to their friends.
+          </p>
+        </div>
 
-    <p class="section-label">// WHAT_WE_DON'T_COLLECT</p>
+        <div class="faq">
+          <h3>Purchases &amp; subscriptions</h3>
+          <p>
+            If you subscribe to Blackbat Pro or buy a certification pack, our payment
+            processor (RevenueCat, on top of the App Store) shares your subscription
+            status, product IDs, and transaction IDs with us so we can unlock premium
+            features. We do not receive or store your card number — that's handled
+            entirely by Apple.
+          </p>
+        </div>
 
-    <div class="faq">
-      <p>
-        We do not access your camera or photo library, location, contacts, or
-        microphone, and we don't use any third-party analytics or crash-reporting
-        SDK that profiles you across other apps. Profile pictures in Blackbat are
-        chosen from a set of built-in avatar presets, not uploaded from your device.
-      </p>
-    </div>
+        <div class="faq">
+          <h3>Notifications</h3>
+          <p>
+            If you enable reminders, we store a push notification token and your
+            reminder preferences (which reminders, what time) so we can send them.
+          </p>
+        </div>
 
-    <p class="section-label">// HOW_WE_USE_YOUR_DATA</p>
+        <p class="section-label">// WHAT_WE_DON'T_COLLECT</p>
 
-    <div class="faq">
-      <p>To run the app you're using: authenticate you, save your progress, calculate streaks/XP/leaderboards, unlock premium content you've paid for, show your friends what you're up to, and send reminders you've opted into. We do not sell your personal data, and we do not use it to build advertising profiles of you.</p>
-    </div>
+        <div class="faq">
+          <p>
+            We do not access your camera or photo library, location, contacts, or
+            microphone, and we don't use any third-party analytics or crash-reporting
+            SDK that profiles you across other apps. Profile pictures in Blackbat are
+            chosen from a set of built-in avatar presets, not uploaded from your device.
+          </p>
+        </div>
 
-    <p class="section-label">// THIRD-PARTY_SERVICES</p>
+        <p class="section-label">// HOW_WE_USE_YOUR_DATA</p>
 
-    <div class="faq">
-      <h3>Who we share data with, and why</h3>
-      <ul>
-        <li><strong>Clerk</strong> — authentication (email, name, login method)</li>
-        <li><strong>Convex</strong> — our database and file storage (everything listed above)</li>
-        <li><strong>RevenueCat</strong> &amp; <strong>Apple's App Store</strong> — subscription and purchase processing</li>
-        <li><strong>Google AdMob</strong> — serves ads to free-tier users (see below)</li>
-      </ul>
-      <p>
-        Each of these processes data only to provide their specific service to us —
-        none of them are permitted to use your Blackbat data for their own purposes.
-      </p>
-    </div>
+        <div class="faq">
+          <p>To run the app you're using: authenticate you, save your progress, calculate streaks/XP/leaderboards, unlock premium content you've paid for, show your friends what you're up to, and send reminders you've opted into. We do not sell your personal data, and we do not use it to build advertising profiles of you.</p>
+        </div>
 
-    <p class="section-label">// ADVERTISING</p>
+        <p class="section-label">// THIRD-PARTY_SERVICES</p>
 
-    <div class="faq">
-      <p>
-        Free accounts see two kinds of ads, both served by Google AdMob: a banner
-        below some practice questions, and optional rewarded ads you can watch to
-        skip a short cooldown. We request <strong>non-personalized ads only</strong>
-        — we don't ask for App Tracking Transparency permission, and we don't share
-        your Apple advertising identifier (IDFA) or any cross-app tracking data with
-        Google or anyone else. Blackbat Pro removes ads entirely.
-      </p>
-      <p>
-        Non-personalized ads still involve storing and reading an identifier on your
-        device. If you're in the EEA, the UK, or a US state with a comparable
-        privacy law, we show you Google's consent form (via the Google User
-        Messaging Platform) before any ad is requested, and we don't request ads
-        unless that form has been completed. You can reopen it and change your
-        answer at any time from <code>Settings &gt; Ad privacy choices</code>.
-      </p>
-    </div>
+        <div class="faq">
+          <h3>Who we share data with, and why</h3>
+          <ul>
+            <li><strong>Clerk</strong> — authentication (email, name, login method)</li>
+            <li><strong>Convex</strong> — our database and file storage (everything listed above)</li>
+            <li><strong>RevenueCat</strong> &amp; <strong>Apple's App Store</strong> — subscription and purchase processing</li>
+            <li><strong>Google AdMob</strong> — serves ads to free-tier users (see below)</li>
+          </ul>
+          <p>
+            Each of these processes data only to provide their specific service to us —
+            none of them are permitted to use your Blackbat data for their own purposes.
+          </p>
+        </div>
 
-    <p class="section-label">// DATA_RETENTION_&amp;_DELETION</p>
+        <p class="section-label">// ADVERTISING</p>
 
-    <div class="faq">
-      <p>
-        You can permanently delete your account at any time from
-        <code>Profile &gt; Delete Account</code> — no email required. This
-        immediately and permanently removes your profile, progress, streaks, avatar,
-        and friend connections. We retain purchase and transaction records after
-        deletion, as required for financial recordkeeping and fraud prevention, but
-        these are no longer linked to an active, usable account.
-      </p>
-      <p>
-        While your account is open we keep your profile and learning data so the app
-        can work — there's no fixed expiry, because streaks and mastery history are
-        the product. Purchase and transaction records are kept for 7 years to meet
-        tax and financial recordkeeping obligations. Push notification tokens are
-        discarded once they stop being valid or you turn reminders off. Backups
-        containing deleted data roll off within 30 days.
-      </p>
-    </div>
+        <div class="faq">
+          <p>
+            Free accounts see two kinds of ads, both served by Google AdMob: a banner
+            below some practice questions, and optional rewarded ads you can watch to
+            skip a short cooldown. We request <strong>non-personalized ads only</strong>
+            — we don't ask for App Tracking Transparency permission, and we don't share
+            your Apple advertising identifier (IDFA) or any cross-app tracking data with
+            Google or anyone else. Blackbat Pro removes ads entirely.
+          </p>
+          <p>
+            Non-personalized ads still involve storing and reading an identifier on your
+            device. If you're in the EEA, the UK, or a US state with a comparable
+            privacy law, we show you Google's consent form (via the Google User
+            Messaging Platform) before any ad is requested, and we don't request ads
+            unless that form has been completed. You can reopen it and change your
+            answer at any time from <code>Settings &gt; Ad privacy choices</code>.
+          </p>
+        </div>
 
-    <p class="section-label">// LEGAL_BASIS_&amp;_WHERE_DATA_GOES</p>
+        <p class="section-label">// DATA_RETENTION_&amp;_DELETION</p>
 
-    <div class="faq">
-      <h3>Why we're allowed to process it (GDPR Art. 6)</h3>
-      <ul>
-        <li><strong>Contract</strong> — your account, progress, purchases, friends and leaderboard entries: we can't provide the app you asked for without them.</li>
-        <li><strong>Consent</strong> — push notifications, appearing on public leaderboards, and ads consent where required. You can withdraw any of these in-app at any time, without losing access to the rest of Blackbat.</li>
-        <li><strong>Legitimate interests</strong> — keeping the service secure, preventing abuse and fraud, and keeping the financial records above.</li>
-      </ul>
-    </div>
+        <div class="faq">
+          <p>
+            You can permanently delete your account at any time from
+            <code>Profile &gt; Delete Account</code> — no email required. This
+            immediately and permanently removes your profile, progress, streaks, avatar,
+            and friend connections. We retain purchase and transaction records after
+            deletion, as required for financial recordkeeping and fraud prevention, but
+            these are no longer linked to an active, usable account.
+          </p>
+          <p>
+            While your account is open we keep your profile and learning data so the app
+            can work — there's no fixed expiry, because streaks and mastery history are
+            the product. Purchase and transaction records are kept for 7 years to meet
+            tax and financial recordkeeping obligations. Push notification tokens are
+            discarded once they stop being valid or you turn reminders off. Backups
+            containing deleted data roll off within 30 days.
+          </p>
+        </div>
 
-    <div class="faq">
-      <h3>International transfers</h3>
-      <p>
-        Blackbat is operated from Australia, and our providers (Clerk, Convex,
-        RevenueCat, Google) process data on servers in the United States and other
-        countries. Where data leaves the EEA or UK, those transfers rely on the
-        European Commission's Standard Contractual Clauses (and the UK Addendum),
-        which each of these providers has in place with us.
-      </p>
-    </div>
+        <p class="section-label">// LEGAL_BASIS_&amp;_WHERE_DATA_GOES</p>
 
-    <p class="section-label">// YOUR_RIGHTS</p>
+        <div class="faq">
+          <h3>Why we're allowed to process it (GDPR Art. 6)</h3>
+          <ul>
+            <li><strong>Contract</strong> — your account, progress, purchases, friends and leaderboard entries: we can't provide the app you asked for without them.</li>
+            <li><strong>Consent</strong> — push notifications, appearing on public leaderboards, and ads consent where required. You can withdraw any of these in-app at any time, without losing access to the rest of Blackbat.</li>
+            <li><strong>Legitimate interests</strong> — keeping the service secure, preventing abuse and fraud, and keeping the financial records above.</li>
+          </ul>
+        </div>
 
-    <div class="faq">
-      <p>
-        Depending on where you live, you have rights to access a copy of your data,
-        correct it, export it in a portable form, delete it, restrict or object to
-        certain uses of it, and withdraw any consent you've given. You can exercise
-        most of these yourself in-app (edit your profile, change notification and
-        leaderboard settings, delete your account); for anything else, email
-        <code>blackbat.terminal@gmail.com</code> and we'll respond within 30 days.
-      </p>
-      <p>
-        We do not sell personal data and we do not share it for cross-context
-        behavioural advertising, so there is nothing to opt out of under the CCPA/CPRA
-        on either front. We won't discriminate against you for exercising any of these
-        rights. If you're in the EEA or UK and you think we've got something wrong,
-        you also have the right to complain to your local data protection authority.
-      </p>
-    </div>
+        <div class="faq">
+          <h3>International transfers</h3>
+          <p>
+            Blackbat is operated from Australia, and our providers (Clerk, Convex,
+            RevenueCat, Google) process data on servers in the United States and other
+            countries. Where data leaves the EEA or UK, those transfers rely on the
+            European Commission's Standard Contractual Clauses (and the UK Addendum),
+            which each of these providers has in place with us.
+          </p>
+        </div>
 
-    <p class="section-label">// CHILDREN'S_PRIVACY</p>
+        <p class="section-label">// YOUR_RIGHTS</p>
 
-    <div class="faq">
-      <p>
-        Blackbat is not directed at children under 13, and we do not knowingly
-        collect personal data from children under 13. If you believe a child has
-        created an account, contact us and we'll delete it.
-      </p>
-    </div>
+        <div class="faq">
+          <p>
+            Depending on where you live, you have rights to access a copy of your data,
+            correct it, export it in a portable form, delete it, restrict or object to
+            certain uses of it, and withdraw any consent you've given. You can exercise
+            most of these yourself in-app (edit your profile, change notification and
+            leaderboard settings, delete your account); for anything else, email
+            <code>blackbat.terminal@gmail.com</code> and we'll respond within 30 days.
+          </p>
+          <p>
+            We do not sell personal data and we do not share it for cross-context
+            behavioural advertising, so there is nothing to opt out of under the CCPA/CPRA
+            on either front. We won't discriminate against you for exercising any of these
+            rights. If you're in the EEA or UK and you think we've got something wrong,
+            you also have the right to complain to your local data protection authority.
+          </p>
+        </div>
 
-    <p class="section-label">// SECURITY</p>
+        <p class="section-label">// CHILDREN'S_PRIVACY</p>
 
-    <div class="faq">
-      <p>
-        Data is encrypted in transit (HTTPS/TLS) between the app and our backend.
-        Access to production data is limited to what's needed to operate the app.
-        No system is perfectly secure, but we don't store payment card data, and we
-        minimize what we collect in the first place.
-      </p>
-    </div>
+        <div class="faq">
+          <p>
+            Blackbat is not directed at children under 13, and we do not knowingly
+            collect personal data from children under 13. If you believe a child has
+            created an account, contact us and we'll delete it.
+          </p>
+        </div>
 
-    <p class="section-label">// CHANGES_TO_THIS_POLICY</p>
+        <p class="section-label">// SECURITY</p>
 
-    <div class="faq">
-      <p>
-        If this policy changes materially, we'll update the effective date above.
-        Continued use of Blackbat after a change means you accept the updated
-        policy.
-      </p>
-    </div>
-  </main>
+        <div class="faq">
+          <p>
+            Data is encrypted in transit (HTTPS/TLS) between the app and our backend.
+            Access to production data is limited to what's needed to operate the app.
+            No system is perfectly secure, but we don't store payment card data, and we
+            minimize what we collect in the first place.
+          </p>
+        </div>
 
-  <footer>© 2026 BLACKBAT // ALL TRANSMISSIONS MONITORED</footer>
+        <p class="section-label">// CHANGES_TO_THIS_POLICY</p>
+
+        <div class="faq">
+          <p>
+            If this policy changes materially, we'll update the effective date above.
+            Continued use of Blackbat after a change means you accept the updated
+            policy.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <footer class="bb-footer">
+      <div class="bb-wrap bb-footer__inner">
+        <a class="bb-footer__brand" href="index.html">
+          <img src="assets/bat.png" alt="" width="28" height="28" />
+          <span>Blackbat Terminal</span>
+        </a>
+        <p class="bb-footer__tag">Learn cybersecurity. With direction.</p>
+        <nav class="bb-footer__nav" aria-label="Footer">
+          <a href="index.html">Home</a>
+          <a href="index.html#features">Features</a>
+          <a href="roadmap.html">Roadmap</a>
+          <a href="career-quiz.html">Career quiz</a>
+          <a href="index.html#faq">FAQ</a>
+          <a href="support.html">Support</a>
+          <a href="privacy.html">Privacy</a>
+        </nav>
+        <div class="bb-footer__social">
+          <a href="https://www.instagram.com/blackbat.terminal/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://www.facebook.com/blackbat.terminal/" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a href="https://x.com/bblackterminal" target="_blank" rel="noopener noreferrer">X</a>
+          <a href="https://www.reddit.com/user/blackbatterminal/" target="_blank" rel="noopener noreferrer">Reddit</a>
+        </div>
+        <p class="bb-footer__copy">&copy; 2026 BLACKBAT // ALL TRANSMISSIONS MONITORED</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/site.js"></script>
 </body>
 </html>

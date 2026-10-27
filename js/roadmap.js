@@ -58,13 +58,4 @@
       })
       .join("");
   }
-
-  var menuBtn = document.querySelector("[data-menu-toggle]");
-  var nav = document.querySelector(".bb-nav");
-  if (menuBtn && nav) {
-    menuBtn.addEventListener("click", function () {
-      var open = nav.classList.toggle("is-open");
-      menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
-    });
-  }
 })();

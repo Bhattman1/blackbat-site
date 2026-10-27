@@ -19,238 +19,92 @@
   <meta name="twitter:title" content="Blackbat — Now on Google Play" />
   <meta name="twitter:description" content="Blackbat is out of beta and live on Google Play. This page sends you to the store listing." />
   <meta name="twitter:image" content="https://blackbatterminal.com/assets/og-image.png" />
-  <meta name="theme-color" content="#0a0a0a" />
+  <meta name="theme-color" content="#050505" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --bg: #0a0a0a;
-      --surface: #131313;
-      --green: #00ff41;
-      --green-dim: #0d2a12;
-      --amber: #ffb000;
-      --text: #e5e2e1;
-      --muted: #b9ccb2;
-      --dim: #5f6e59;
-      --edge: #3b4b37;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: "JetBrains Mono", ui-monospace, monospace;
-      font-size: 16px;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 100;
-      background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.14) 0 1px, transparent 1px 3px);
-    }
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 99;
-      background: radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.5) 100%);
-    }
-    .wrap { max-width: 520px; margin: 0 auto; padding: 0 20px; }
-
-    header {
-      border-bottom: 1px solid var(--edge);
-      padding: 14px 0;
-      position: sticky;
-      top: 0;
-      background: rgba(10, 10, 10, 0.92);
-      backdrop-filter: blur(6px);
-      z-index: 50;
-    }
-    header .wrap { display: flex; justify-content: space-between; align-items: center; }
-    .brand {
-      font-family: "Space Mono", monospace;
-      font-weight: 700;
-      letter-spacing: 1px;
-      color: var(--text);
-      text-decoration: none;
-      font-size: 15px;
-    }
-    .back-link {
-      font-size: 12px;
-      letter-spacing: 0.5px;
-      color: var(--green);
-      text-decoration: none;
-    }
-    .back-link:hover { text-decoration: underline; }
-
-    main { padding: 36px 0 72px; }
-    h1 {
-      font-family: "Space Mono", monospace;
-      font-size: clamp(24px, 6vw, 32px);
-      color: var(--green);
-      text-shadow: 0 0 12px rgba(0, 255, 65, 0.5);
-      margin-bottom: 10px;
-      line-height: 1.2;
-    }
-    .lede {
-      color: var(--muted);
-      margin-bottom: 22px;
-      font-size: 14px;
-      line-height: 1.65;
-    }
-    .warn-banner {
-      border: 1px solid var(--amber);
-      background: rgba(255, 176, 0, 0.08);
-      padding: 14px 16px;
-      margin-bottom: 28px;
-      font-size: 12px;
-      color: var(--amber);
-      line-height: 1.6;
-    }
-    .order-note {
-      font-size: 12px;
-      color: var(--muted);
-      margin-bottom: 28px;
-      line-height: 1.65;
-      padding-left: 12px;
-      border-left: 2px solid var(--edge);
-    }
-
-    .step {
-      border: 1px solid var(--edge);
-      background: var(--surface);
-      padding: 20px 18px 22px;
-      margin-bottom: 18px;
-    }
-    .step-num {
-      display: inline-block;
-      color: var(--amber);
-      font-size: 11px;
-      letter-spacing: 1.4px;
-      margin-bottom: 8px;
-    }
-    .step h2 {
-      font-family: "Space Mono", monospace;
-      font-size: 16px;
-      color: var(--green);
-      margin-bottom: 8px;
-      line-height: 1.35;
-    }
-    .step p {
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.65;
-      margin-bottom: 14px;
-    }
-    .step .btn { margin-bottom: 16px; }
-    .shot-label {
-      font-size: 10px;
-      letter-spacing: 1.2px;
-      color: var(--dim);
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-    .shot-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-    .shot-figure { min-width: 0; }
-    .shot-frame {
-      position: relative;
-      z-index: 101;
-      overflow: hidden;
-      border: 1px solid var(--edge);
-      border-radius: 8px;
-      background: #fff;
-      aspect-ratio: 9 / 11;
-    }
-    .shot-frame img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
-    }
-    .shot-caption {
-      margin-top: 6px;
-      font-size: 10px;
-      color: var(--dim);
-      line-height: 1.45;
-      text-align: center;
-    }
-    .shot-frame--short { aspect-ratio: 9 / 10; }
-    .shot-frame--tall { aspect-ratio: 9 / 14; }
-    .btn {
-      display: block;
-      width: 100%;
-      text-align: center;
-      text-decoration: none;
-      border: 1px solid var(--green);
-      color: var(--green);
-      padding: 14px 16px;
-      font-size: 13px;
-      letter-spacing: 0.8px;
-      transition: background 0.12s ease, color 0.12s ease;
-    }
-    .btn:hover,
-    .btn:focus-visible {
-      background: var(--green);
-      color: #0a0a0a;
-    }
-    .btn:active { transform: translateY(1px); }
-
-    .ios-note {
-      margin-top: 28px;
-      padding-top: 22px;
-      border-top: 1px solid var(--edge);
-      font-size: 12px;
-      color: var(--dim);
-      text-align: center;
-      line-height: 1.6;
-    }
-    .ios-note a {
-      color: var(--green);
-      text-decoration: none;
-    }
-    .ios-note a:hover { text-decoration: underline; }
-
-    footer {
-      margin: 48px 0 20px;
-      text-align: center;
-      color: var(--dim);
-      font-size: 11px;
-      letter-spacing: 1.2px;
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/site.css" />
 </head>
 <body>
-  <header>
-    <div class="wrap">
-      <a class="brand" href="index.html">&gt; BLACKBAT</a>
-      <a class="back-link" href="index.html">&lt; BACK</a>
-    </div>
-  </header>
+  <div class="bb-page">
+    <a class="bb-skip" href="#main">Skip to content</a>
+    <header class="bb-header">
+      <div class="bb-header__inner">
+        <a class="bb-logo" href="index.html" aria-label="Blackbat Terminal home">
+          <img src="assets/bat.png" alt="" width="40" height="40" />
+          <span class="bb-logo__text">BLACK BAT<span>Terminal</span></span>
+        </a>
+        <nav class="bb-nav" id="site-nav" aria-label="Primary">
+          <a href="index.html#features" aria-current="page">Features</a>
+          <a href="roadmap.html">Roadmap</a>
+          <a href="career-quiz.html">Career quiz</a>
+          <a href="index.html#faq" aria-current="page">FAQ</a>
+          <a href="support.html">Support</a>
+          <div class="bb-nav__stores">
+            <a class="bb-header__badge" href="https://apps.apple.com/app/blackbat/id6788403863" aria-label="Download Blackbat on the App Store">
+              <img src="assets/Download From App Store.png" alt="" width="498" height="167" />
+            </a>
+            <a class="bb-header__badge bb-header__badge--play" href="https://play.google.com/store/apps/details?id=com.milindbhatt.blackbat" aria-label="Get Blackbat on Google Play">
+              <img src="assets/Get It On Playstore.png" alt="" width="646" height="250" />
+            </a>
+          </div>
+        </nav>
+        <div class="bb-header__actions">
+          <a class="bb-header__badge" href="https://apps.apple.com/app/blackbat/id6788403863" aria-label="Download Blackbat on the App Store">
+            <img src="assets/Download From App Store.png" alt="" width="498" height="167" />
+          </a>
+          <a class="bb-header__badge bb-header__badge--play" href="https://play.google.com/store/apps/details?id=com.milindbhatt.blackbat" aria-label="Get Blackbat on Google Play">
+            <img src="assets/Get It On Playstore.png" alt="" width="646" height="250" />
+          </a>
+        </div>
+        <button class="bb-menu-btn" type="button" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </header>
 
-  <main class="wrap">
-    <h1>OUT OF BETA</h1>
+    <main class="bb-main" id="main">
+      <div class="bb-wrap bb-doc">
+        <p class="bb-eyebrow">// ANDROID</p>
+        <h1>Out of beta</h1>
 
-    <article class="step">
-      <div class="step-num">ANDROID</div>
-      <h2>Blackbat is live on Google Play</h2>
-      <p>The closed beta is over — no testers group, no opt-in. Install it like any other app. You'll be sent to the store listing in a moment, or tap below.</p>
-      <a class="btn" href="https://play.google.com/store/apps/details?id=com.milindbhatt.blackbat">&gt; [ GET_IT_ON_GOOGLE_PLAY ]</a>
-    </article>
+        <article class="step">
+          <h2>Blackbat is live on Google Play</h2>
+          <p>The closed beta is over — no testers group, no opt-in. Install it like any other app. You'll be sent to the store listing in a moment, or tap below.</p>
+          <a class="bb-btn bb-btn--primary bb-btn--block" href="https://play.google.com/store/apps/details?id=com.milindbhatt.blackbat">Open Google Play <span class="bb-arrow" aria-hidden="true">&rarr;</span></a>
+        </article>
 
-    <p class="ios-note">On iPhone? <a href="https://apps.apple.com/app/blackbat/id6788403863">Download from the App Store</a>.</p>
-  </main>
+        <p class="ios-note">On iPhone? <a href="https://apps.apple.com/app/blackbat/id6788403863">Download from the App Store</a>.</p>
+      </div>
+    </main>
 
-  <footer>© 2026 BLACKBAT // ALL TRANSMISSIONS MONITORED</footer>
+    <footer class="bb-footer">
+      <div class="bb-wrap bb-footer__inner">
+        <a class="bb-footer__brand" href="index.html">
+          <img src="assets/bat.png" alt="" width="28" height="28" />
+          <span>Blackbat Terminal</span>
+        </a>
+        <p class="bb-footer__tag">Learn cybersecurity. With direction.</p>
+        <nav class="bb-footer__nav" aria-label="Footer">
+          <a href="index.html">Home</a>
+          <a href="index.html#features">Features</a>
+          <a href="roadmap.html">Roadmap</a>
+          <a href="career-quiz.html">Career quiz</a>
+          <a href="index.html#faq">FAQ</a>
+          <a href="support.html">Support</a>
+          <a href="privacy.html">Privacy</a>
+        </nav>
+        <div class="bb-footer__social">
+          <a href="https://www.instagram.com/blackbat.terminal/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://www.facebook.com/blackbat.terminal/" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a href="https://x.com/bblackterminal" target="_blank" rel="noopener noreferrer">X</a>
+          <a href="https://www.reddit.com/user/blackbatterminal/" target="_blank" rel="noopener noreferrer">Reddit</a>
+        </div>
+        <p class="bb-footer__copy">&copy; 2026 BLACKBAT // ALL TRANSMISSIONS MONITORED</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/site.js"></script>
 </body>
 </html>

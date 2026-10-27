@@ -1,4 +1,4 @@
-/* Blackbat Terminal: career quiz, results & roadmap (shared) */
+/* Blackbat Terminal: shared styles for every page except the index hero */
 :root {
   --bg: #050505;
   --surface: #0b0d0b;
@@ -9,7 +9,7 @@
   --amber: #ffb000;
   --text: #f4f4f2;
   --muted: #a3a5a3;
-  --dim: #646864;
+  --dim: #8a8e8a;
   --edge: rgba(255, 255, 255, 0.12);
   --edge-bright: rgba(255, 255, 255, 0.2);
   --accent: var(--green);
@@ -217,8 +217,9 @@ body::after {
     align-items: stretch;
     gap: 0;
     padding: 12px clamp(16px, 3vw, 28px) 20px;
-    background: rgba(5, 5, 5, 0.96);
+    background: var(--bg);
     border-bottom: 1px solid var(--edge);
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.6);
   }
 
   .bb-nav.is-open {
@@ -402,7 +403,14 @@ body::after {
 
 .bb-btn:focus-visible,
 .bb-nav a:focus-visible,
-.bb-quiz-option:focus-visible {
+.bb-quiz-option:focus-visible,
+.bb-logo:focus-visible,
+.bb-header__badge:focus-visible,
+.bb-store-badge:focus-visible,
+.bb-resource:focus-visible,
+.bb-menu-btn:focus-visible,
+.bb-footer a:focus-visible,
+.bb-doc a:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 4px;
 }
@@ -798,7 +806,7 @@ body::after {
 }
 
 .bb-resource__body p {
-  font-size: 11px;
+  font-size: 12px;
   color: var(--muted);
   line-height: 1.5;
 }
@@ -949,7 +957,7 @@ body::after {
 }
 
 .bb-phase p {
-  font-size: 11px;
+  font-size: 12px;
   color: var(--muted);
 }
 
@@ -1025,7 +1033,7 @@ body::after {
 }
 
 .bb-timeline-item__meta {
-  font-size: 11px;
+  font-size: 12px;
   color: var(--dim);
   display: flex;
   flex-wrap: wrap;
@@ -1083,40 +1091,312 @@ body::after {
 }
 
 .bb-support-item p {
-  font-size: 11px;
+  font-size: 12px;
   color: var(--muted);
 }
 
 /* Footer */
 .bb-footer {
   margin-top: auto;
-  padding: 28px 0 32px;
+  padding: 40px 0 32px;
   border-top: 1px solid var(--edge);
 }
 
-.bb-footer__nav {
+.bb-footer__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.bb-footer__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Space Mono", ui-monospace, monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.bb-footer__brand img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.bb-footer__tag {
+  margin: 8px 0 22px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.bb-footer__nav,
+.bb-footer__social {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px 22px;
-  margin-bottom: 16px;
+  gap: 4px 6px;
+  margin-bottom: 10px;
 }
 
-.bb-footer__nav a {
+.bb-footer__nav a,
+.bb-footer__social a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0 8px;
   font-size: 12px;
   color: var(--muted);
   text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.bb-footer__social a {
+  color: var(--dim);
 }
 
 .bb-footer__nav a:hover {
   color: var(--green);
 }
 
+.bb-footer__social a:hover {
+  color: var(--amber);
+}
+
 .bb-footer__copy {
-  text-align: center;
+  margin-top: 12px;
   font-size: 11px;
   color: var(--dim);
   letter-spacing: 0.08em;
+}
+
+/* Skip link */
+.bb-skip {
+  position: absolute;
+  left: 12px;
+  top: -60px;
+  z-index: 100;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--green);
+  color: #000;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.bb-skip:focus {
+  top: 12px;
+}
+
+/* Store badges inside the mobile menu */
+.bb-nav__stores {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .bb-nav__stores {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 16px;
+  }
+
+  .bb-nav .bb-nav__stores a {
+    padding: 0;
+    border-bottom: 0;
+  }
+
+  .bb-nav .bb-nav__stores a::after {
+    display: none;
+  }
+
+  .bb-nav__stores .bb-header__badge img {
+    height: 42px;
+  }
+
+  .bb-nav__stores .bb-header__badge--play img {
+    height: 62px;
+  }
+}
+
+/* Utility layouts (replace former inline styles) */
+.bb-btn--block {
+  display: flex;
+  width: 100%;
+}
+
+.bb-btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.bb-btn-row--center {
+  justify-content: center;
+  margin: 28px 0 0;
+}
+
+.bb-lede--note {
+  margin-top: -20px;
+  font-size: 13px;
+  color: var(--dim);
+}
+
+.bb-lede--note a {
+  color: var(--green);
+}
+
+.bb-cta-panel__media img {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid var(--edge);
+}
+
+/* Document pages: support, privacy, android */
+.bb-doc {
+  max-width: 760px;
+}
+
+.bb-doc h1 {
+  font-family: "Space Mono", ui-monospace, monospace;
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  margin-bottom: 14px;
+}
+
+.bb-doc .lede {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--muted);
+  margin-bottom: 32px;
+}
+
+.bb-doc .contact-pane {
+  border: 1px solid rgba(0, 232, 70, 0.35);
+  border-radius: var(--radius);
+  background: rgba(0, 232, 70, 0.04);
+  padding: 22px 24px;
+  margin-bottom: 40px;
+}
+
+.bb-doc .contact-pane .label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--green);
+  margin-bottom: 8px;
+}
+
+.bb-doc .contact-pane a,
+.bb-doc .contact-pane .date {
+  color: var(--text);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.bb-doc .contact-pane > a,
+.bb-doc .contact-pane .date {
+  display: inline-block;
+  font-size: 17px;
+}
+
+.bb-doc .contact-pane > a:hover {
+  color: var(--green);
+}
+
+.bb-doc .contact-pane .note a {
+  color: var(--green);
+}
+
+.bb-doc .contact-pane .note {
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.bb-doc .section-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--amber);
+  margin: 44px 0 14px;
+}
+
+.bb-doc .faq,
+.bb-doc .step {
+  border: 1px solid var(--edge);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.015);
+  padding: 20px 22px;
+  margin-bottom: 12px;
+}
+
+.bb-doc .faq h3,
+.bb-doc .step h2 {
+  font-family: "Space Mono", ui-monospace, monospace;
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.bb-doc .faq p,
+.bb-doc .faq ul,
+.bb-doc .step p {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+.bb-doc .step p {
+  margin-bottom: 18px;
+}
+
+.bb-doc .faq p + p {
+  margin-top: 10px;
+}
+
+.bb-doc .faq ul {
+  margin: 8px 0 0 18px;
+}
+
+.bb-doc .faq strong,
+.bb-doc .step strong {
+  color: var(--text);
+}
+
+.bb-doc .faq a {
+  color: var(--green);
+}
+
+.bb-doc code {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 4px;
+  padding: 1px 6px;
+  font-size: 13px;
+}
+
+.bb-doc .ios-note {
+  margin-top: 24px;
+  font-size: 13px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.bb-doc .ios-note a {
+  color: var(--green);
 }
 
 .bb-icon {

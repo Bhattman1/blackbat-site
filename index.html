@@ -146,6 +146,7 @@
       --edge: #3b4b37;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    ul, ol { list-style: none; }
     html {
       scroll-behavior: smooth;
       width: 100%;
@@ -303,165 +304,343 @@
       display: block;
     }
 
-    /* Features */
+    /* ==========================================================
+       Content sections below the hero (all widths).
+       Same visual language as the desktop hero and the subpages:
+       soft borders, 12px radius, eyebrow above each heading.
+       ========================================================== */
+    .content-section {
+      padding-top: clamp(64px, 8vw, 112px);
+      scroll-margin-top: 24px;
+    }
     .section-label {
-      font-size: 12px; letter-spacing: 2px; color: var(--amber);
-      text-align: center; margin: 58px 0 22px;
+      font-family: "Space Mono", ui-monospace, monospace;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--dt-amber);
+      text-align: center;
+      margin: 0 0 14px;
     }
     .section-h2 {
       font-family: "Space Mono", monospace;
-      font-size: clamp(20px, 2.4vw, 28px);
+      font-size: clamp(22px, 2.6vw, 32px);
       font-weight: 700;
-      color: var(--text);
+      color: var(--dt-text);
       text-align: center;
+      text-wrap: balance;
       letter-spacing: -0.02em;
-      line-height: 1.3;
-      max-width: 720px;
+      line-height: 1.25;
+      max-width: 760px;
       margin: 0 auto 14px;
     }
     .section-intro {
-      font-size: 14px;
-      color: var(--muted);
+      font-size: 15px;
+      color: var(--dt-text-2);
       text-align: center;
+      text-wrap: pretty;
       line-height: 1.75;
       max-width: 640px;
-      margin: 0 auto 28px;
-    }
-    .content-section {
-      margin-bottom: 12px;
+      margin: 0 auto 36px;
     }
     .grid {
-      display: grid; gap: 14px;
+      display: grid;
+      gap: 14px;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      margin-bottom: 20px;
     }
     .card {
-      border: 1px solid var(--edge);
-      background: var(--surface);
-      padding: 22px;
-      transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+      border: 1px solid var(--dt-line-soft);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.02);
+      padding: 24px 22px;
+      transition: border-color 200ms ease, background-color 200ms ease;
     }
     .card:hover {
-      border-color: var(--green);
-      box-shadow: 0 0 18px rgba(0, 255, 65, 0.08);
-      transform: translateY(-2px);
+      border-color: rgba(0, 232, 70, 0.4);
+      background: rgba(0, 232, 70, 0.03);
+    }
+    .card__icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      margin-bottom: 18px;
+      border-radius: 10px;
+      border: 1px solid rgba(0, 232, 70, 0.3);
+      background: rgba(0, 232, 70, 0.06);
+      color: var(--dt-green);
+    }
+    .card__icon svg {
+      width: 22px;
+      height: 22px;
+    }
+    .card__num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      margin-bottom: 16px;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 232, 70, 0.5);
+      color: var(--dt-green);
+      font-family: "Space Mono", monospace;
+      font-size: 12px;
+      font-weight: 700;
     }
     .card h3 {
-      font-size: 14px; letter-spacing: 1px; color: var(--green);
-      margin-bottom: 10px; font-family: "Space Mono", monospace;
+      font-family: "Space Mono", monospace;
+      font-size: 15px;
+      line-height: 1.35;
+      color: var(--dt-text);
+      margin-bottom: 8px;
     }
-    .card p { font-size: 13px; color: var(--muted); }
-    .card .tag { color: var(--amber); font-size: 11px; letter-spacing: 1px; }
+    .card p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--dt-text-2);
+    }
 
     /* Certs strip */
     .certs {
-      display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
-      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      max-width: 760px;
+      margin: 0 auto;
     }
     .cert {
-      border: 1px solid var(--edge); color: var(--muted);
-      font-size: 12px; letter-spacing: 1px; padding: 7px 14px;
+      border: 1px solid var(--dt-line-soft);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.02);
+      color: var(--dt-text);
+      font-size: 13px;
+      padding: 8px 16px;
     }
     .cert-note {
       text-align: center;
-      font-size: 12px;
-      color: var(--dim);
-      margin-top: 16px;
+      font-size: 13px;
+      color: var(--dt-text-2);
+      margin: 20px auto 0;
       line-height: 1.6;
       max-width: 560px;
-      margin-left: auto;
-      margin-right: auto;
     }
 
-    /* FAQ */
+    /* Mobile-only proof strip (desktop shows it in the hero) */
+    .proof-strip { display: none; }
+    .proof-stat__value {
+      display: block;
+      font-family: "Space Mono", monospace;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--dt-green);
+    }
+    .proof-stat__label {
+      display: block;
+      margin-top: 4px;
+      font-size: 12px;
+      line-height: 1.4;
+      color: var(--dt-text-2);
+    }
+
+    /* FAQ: native disclosure, so it works without JS and stays indexable */
     .faq-list {
-      max-width: 720px;
+      max-width: 760px;
       margin: 0 auto;
     }
     .faq-item {
-      border: 1px solid var(--edge);
-      background: var(--surface);
-      padding: 20px 22px;
-      margin-bottom: 12px;
+      border: 1px solid var(--dt-line-soft);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.02);
+      margin-bottom: 10px;
+      transition: border-color 200ms ease;
     }
-    .faq-item h3 {
-      font-size: 14px;
-      color: var(--green);
+    .faq-item[open] { border-color: rgba(0, 232, 70, 0.35); }
+    .faq-item summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 56px;
+      padding: 16px 20px;
+      cursor: pointer;
+      list-style: none;
       font-family: "Space Mono", monospace;
-      margin-bottom: 8px;
+      font-size: 15px;
+      font-weight: 700;
       line-height: 1.4;
+      color: var(--dt-text);
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: "";
+      flex: 0 0 auto;
+      width: 9px;
+      height: 9px;
+      margin-top: -4px;
+      border-right: 1.5px solid var(--dt-green);
+      border-bottom: 1.5px solid var(--dt-green);
+      transform: rotate(45deg);
+      transition: transform 200ms ease, margin 200ms ease;
+    }
+    .faq-item[open] summary::after {
+      margin-top: 4px;
+      transform: rotate(-135deg);
+    }
+    .faq-item summary:hover { color: var(--dt-green); }
+    .faq-item summary:focus-visible {
+      outline: 2px solid var(--dt-green);
+      outline-offset: 2px;
+      border-radius: 12px;
     }
     .faq-item p {
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.7;
+      padding: 0 20px 20px;
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--dt-text-2);
     }
 
-    /* Footer */
-    .site-footer {
-      margin: 72px 0 32px;
-      padding-top: 28px;
-      border-top: 1px solid var(--edge);
-    }
-    .site-footer__nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px 22px;
-      margin-bottom: 18px;
-    }
-    .site-footer__nav a {
-      font-size: 12px;
-      color: var(--muted);
-      text-decoration: none;
-      letter-spacing: 0.4px;
-    }
-    .site-footer__nav a:hover {
-      color: var(--green);
-    }
-    .site-footer__social {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px 18px;
-      margin-bottom: 18px;
-    }
-    .site-footer__social a {
-      font-size: 11px;
-      color: var(--dim);
-      text-decoration: none;
-      letter-spacing: 0.6px;
-    }
-    .site-footer__social a:hover {
-      color: var(--amber);
-    }
-    .site-footer__copy {
+    /* Get the app: final CTA panel (all widths) */
+    .get-app {
+      position: relative;
+      overflow: hidden;
+      margin-top: clamp(64px, 8vw, 112px);
+      padding: clamp(36px, 5vw, 56px) 20px;
+      border: 1px solid rgba(0, 232, 70, 0.3);
+      border-radius: 18px;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(0, 232, 70, 0.12), transparent 65%),
+        #070907;
       text-align: center;
-      color: var(--dim);
-      font-size: 11px;
-      letter-spacing: 1.4px;
+      scroll-margin-top: 24px;
+    }
+    .get-app__logo {
+      display: block;
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 18px;
+      object-fit: contain;
+    }
+    .get-app .section-intro { margin-bottom: 28px; }
+    .get-app__badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+    }
+    .get-app__badges a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.12s ease, filter 0.12s ease;
+    }
+    .get-app__badges a:hover,
+    .get-app__badges a:focus-visible {
+      transform: translateY(-1px);
+      filter: brightness(1.06);
+    }
+    .get-app__badges a:focus-visible {
+      outline: 2px solid var(--dt-green);
+      outline-offset: 3px;
+      border-radius: 10px;
+    }
+    /* The Play badge PNG carries transparent padding, so it renders taller
+       to match the App Store badge's visible height. */
+    .get-app__badges img {
+      display: block;
+      width: auto;
+      height: 46px;
+    }
+    .get-app__badges .playstore-badge img { height: 70px; }
+    .get-app__fine {
+      margin-top: 18px;
+      font-size: 12px;
+      color: var(--dt-text-2);
     }
 
     /* Terminal log flavor */
     .log {
-      border: 1px solid var(--edge);
-      background: var(--surface);
+      border: 1px solid var(--dt-line-soft);
+      border-radius: 12px;
+      background: #070807;
       padding: 22px 24px;
-      margin: 84px 0 0;
+      margin: 40px 0 0;
       font-size: 13px;
-      color: var(--muted);
+      color: var(--dt-text-2);
     }
     .log .ln { display: block; }
-    .log .g { color: var(--green); }
-    .log .a { color: var(--amber); }
+    .log .g { color: var(--dt-green); }
+    .log .a { color: var(--dt-amber); }
 
-    footer {
-      margin: 60px 0 32px;
+    /* Footer */
+    .site-footer {
+      margin-top: 72px;
+      padding: 40px 20px 32px;
+      border-top: 1px solid var(--dt-line-soft);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       text-align: center;
-      color: var(--dim);
-      font-size: 11px;
-      letter-spacing: 1.4px;
     }
+    .site-footer__brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: "Space Mono", monospace;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--dt-text);
+      text-decoration: none;
+    }
+    .site-footer__brand img {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+    }
+    .site-footer__tag {
+      margin: 8px 0 22px;
+      font-size: 12px;
+      color: var(--dt-text-2);
+    }
+    .site-footer__nav,
+    .site-footer__social {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 4px 6px;
+      margin-bottom: 10px;
+    }
+    .site-footer__nav a,
+    .site-footer__social a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 0 8px;
+      font-size: 12px;
+      color: var(--dt-text-2);
+      text-decoration: none;
+      transition: color 180ms ease;
+    }
+    .site-footer__social a { color: var(--dt-text-3); }
+    .site-footer__nav a:hover { color: var(--dt-green); }
+    .site-footer__social a:hover { color: var(--dt-amber); }
+    .site-footer a:focus-visible {
+      outline: 2px solid var(--dt-green);
+      outline-offset: 2px;
+      border-radius: 6px;
+    }
+    .site-footer__copy {
+      margin-top: 12px;
+      color: var(--dt-text-muted);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+    }
+
     @media (max-width: 920px) {
       .hero::before {
         display: none;
@@ -522,11 +701,34 @@
         max-width: none;
         margin-bottom: 0;
       }
-      .section-label {
-        margin-top: 32px;
+      .mobile-hero-intro .hero-copy {
+        border-color: rgba(0, 232, 70, 0.35);
+        border-radius: 12px;
+        padding: 18px;
       }
+      .mobile-hero-intro .hero-copy-tag {
+        font-size: 11px;
+      }
+      .mobile-hero-intro .hero-copy-sub {
+        font-size: 14px;
+      }
+      .proof-strip {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+        margin-top: 12px;
+        text-align: center;
+      }
+      .proof-stat {
+        padding: 14px 6px;
+        border: 1px solid var(--dt-line-soft);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.02);
+      }
+      .get-app__badges img { height: 42px; }
+      .get-app__badges .playstore-badge img { height: 64px; }
+      .get-app__badges { gap: 8px; }
       .log {
-        margin-top: 46px;
         padding: 18px 16px;
         font-size: 12px;
       }
@@ -551,12 +753,8 @@
       .grid {
         grid-template-columns: repeat(4, minmax(0, 1fr));
       }
-      .certs {
-        gap: 12px;
-      }
-      .cert {
-        background: rgba(255, 255, 255, 0.01);
-      }
+      /* The desktop hero already carries generous bottom padding */
+      #features { padding-top: 32px; }
     }
 
     /* ==========================================================
@@ -573,19 +771,18 @@
       --dt-text: #f4f4f2;
       --dt-text-2: #a3a5a3;
       --dt-text-3: #989b98;
-      --dt-text-muted: #646864;
+      --dt-text-muted: #8a8e8a;
       --dt-line: rgba(255, 255, 255, 0.16);
+      --dt-line-soft: rgba(255, 255, 255, 0.12);
       --dt-pad: clamp(44px, 4.5vw, 68px);
     }
 
     .dt-header,
     .hero-dt,
-    .dt-store,
     .dt-modal { display: none; }
 
     .dt-header,
     .hero-dt,
-    .dt-store,
     .dt-modal {
       font-family: "Space Mono", ui-monospace, monospace;
     }
@@ -593,7 +790,6 @@
     .dt-header a:focus-visible,
     .hero-dt a:focus-visible,
     .hero-dt button:focus-visible,
-    .dt-store a:focus-visible,
     .dt-modal button:focus-visible {
       outline: 2px solid var(--dt-green);
       outline-offset: 3px;
@@ -830,7 +1026,7 @@
     .dt-cta--secondary svg { flex: 0 0 auto; }
 
     /* Social proof */
-    .hero-proof { margin-top: 72px; }
+    .hero-proof { margin-top: 64px; }
     .hero-proof__rule {
       width: 100%;
       max-width: 500px;
@@ -838,54 +1034,27 @@
       background: rgba(255, 255, 255, 0.1);
       margin-bottom: 18px;
     }
-    .hero-proof__text {
-      font-size: 12px;
-      line-height: 1.5;
-      color: #777b77;
-      margin-bottom: 18px;
-    }
-    .hero-proof__row {
+    .hero-stats {
       display: flex;
-      align-items: center;
-      gap: 18px;
+      gap: clamp(28px, 3vw, 44px);
+      list-style: none;
     }
-    .hero-avatars { display: flex; }
-    .hero-avatars span {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      border: 2px solid var(--dt-bg);
-      background: #1a1d1a;
-      color: #6f7c70;
-      display: inline-flex;
-      align-items: flex-end;
-      justify-content: center;
-      overflow: hidden;
-    }
-    .hero-avatars span + span { margin-left: -8px; }
-    .hero-avatars span:nth-child(2) { background: #182418; color: #7d8a7e; }
-    .hero-avatars span:nth-child(3) { background: #14211a; color: #68786c; }
-    .hero-avatars span:nth-child(4) { background: #1d1f1d; color: #7a8079; }
-    .hero-avatars span:nth-child(5) { background: #161e18; color: #708273; }
-    .hero-avatars svg {
-      width: 100%;
-      height: 100%;
-      fill: currentColor;
-    }
-    .hero-rating {
+    .hero-stats li {
       display: flex;
-      align-items: center;
-      gap: 10px;
+      flex-direction: column;
+      gap: 6px;
     }
-    .hero-rating__stars {
-      color: var(--dt-green);
-      font-size: 16px;
-      letter-spacing: 1px;
+    .hero-stats__value {
+      font-size: 22px;
+      font-weight: 700;
       line-height: 1;
+      color: var(--dt-text);
     }
-    .hero-rating__text {
+    .hero-stats__label {
       font-size: 12px;
-      color: #797d79;
+      line-height: 1.4;
+      color: var(--dt-text-2);
+      max-width: 15ch;
     }
 
     /* Product showcase */
@@ -1007,48 +1176,6 @@
       flex: 0 0 auto;
     }
 
-    /* Desktop download strip */
-    .dt-store {
-      text-align: center;
-      margin-top: 34px;
-    }
-    .dt-store__badges {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 14px;
-    }
-    .dt-store__badges a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 170px;
-      min-height: 52px;
-      transition: transform 0.12s ease, filter 0.12s ease;
-    }
-    .dt-store__badges a:hover {
-      transform: translateY(-1px);
-      filter: brightness(1.06);
-    }
-    .dt-store__badges img {
-      width: auto;
-      max-width: 100%;
-      display: block;
-      object-fit: contain;
-    }
-
-    @media (min-width: 921px) {
-      .dt-store__badges img {
-        height: 52px;
-      }
-      .dt-store__badges a.playstore-badge {
-        min-height: 74px;
-      }
-      .dt-store__badges a.playstore-badge img {
-        height: 74px;
-      }
-    }
-
     /* Demo modal */
     .dt-modal {
       position: fixed;
@@ -1119,7 +1246,6 @@
       .hero { display: none; }
       .dt-header { display: block; }
       .hero-dt { display: block; }
-      .dt-store { display: block; }
       .dt-modal:not([hidden]) { display: flex; }
 
       .hero-copy-dt { animation: dt-rise-8 450ms ease-out both; }
@@ -1223,20 +1349,11 @@
 
           <div class="hero-proof">
             <div class="hero-proof__rule"></div>
-            <p class="hero-proof__text">Provided free cybersecurity video to over 100,000 viewers</p>
-            <div class="hero-proof__row">
-              <div class="hero-avatars" aria-hidden="true">
-                <span><svg viewBox="0 0 32 32"><circle cx="16" cy="12.6" r="5.3" /><path d="M4.4 32c1-6.2 5.7-9.7 11.6-9.7S26.6 25.8 27.6 32z" /></svg></span>
-                <span><svg viewBox="0 0 32 32"><circle cx="16" cy="12.6" r="5.3" /><path d="M4.4 32c1-6.2 5.7-9.7 11.6-9.7S26.6 25.8 27.6 32z" /></svg></span>
-                <span><svg viewBox="0 0 32 32"><circle cx="16" cy="12.6" r="5.3" /><path d="M4.4 32c1-6.2 5.7-9.7 11.6-9.7S26.6 25.8 27.6 32z" /></svg></span>
-                <span><svg viewBox="0 0 32 32"><circle cx="16" cy="12.6" r="5.3" /><path d="M4.4 32c1-6.2 5.7-9.7 11.6-9.7S26.6 25.8 27.6 32z" /></svg></span>
-                <span><svg viewBox="0 0 32 32"><circle cx="16" cy="12.6" r="5.3" /><path d="M4.4 32c1-6.2 5.7-9.7 11.6-9.7S26.6 25.8 27.6 32z" /></svg></span>
-              </div>
-              <p class="hero-rating">
-                <!-- <span class="hero-rating__stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span> -->
-                <span class="hero-rating__text">60,000+ followers across instagram and facebook</span>
-              </p>
-            </div>
+            <ul class="hero-stats" aria-label="Blackbat in numbers">
+              <li><span class="hero-stats__value">2,000+</span><span class="hero-stats__label">cert practice questions</span></li>
+              <li><span class="hero-stats__value">100K+</span><span class="hero-stats__label">free video viewers</span></li>
+              <li><span class="hero-stats__value">60K+</span><span class="hero-stats__label">Instagram &amp; Facebook followers</span></li>
+            </ul>
           </div>
         </div>
 
@@ -1295,112 +1412,129 @@
         <h1 class="hero-copy-title" id="mobile-hero-headline">Learn cybersecurity. With direction.</h1>
         <p class="hero-copy-sub">Daily quizzes, certification practice, and guided lessons for beginners — five minutes a day.</p>
       </div>
+      <ul class="proof-strip" aria-label="Blackbat in numbers">
+        <li class="proof-stat"><span class="proof-stat__value">2,000+</span><span class="proof-stat__label">practice questions</span></li>
+        <li class="proof-stat"><span class="proof-stat__value">100K+</span><span class="proof-stat__label">video viewers</span></li>
+        <li class="proof-stat"><span class="proof-stat__value">60K+</span><span class="proof-stat__label">followers</span></li>
+      </ul>
     </section>
 
     <section class="content-section" id="features" aria-labelledby="features-heading">
-    <h2 class="section-h2" id="features-heading">A cybersecurity learning app built for beginners</h2>
-    <p class="section-intro">Blackbat helps you learn cybersecurity from zero with short daily quizzes, interactive lessons, and job-ready practice — without the 900-page textbook.</p>
-    <p class="section-label">// MISSION_BRIEF</p>
-    <div class="grid">
-      <div class="card">
-        <h3>DAILY_QUIZZES</h3>
-        <p>Short cybersecurity quizzes and scenarios you can finish in five minutes. Build the habit before you burn out on long study sessions.</p>
+      <p class="section-label">// MISSION_BRIEF</p>
+      <h2 class="section-h2" id="features-heading">A cybersecurity learning app built for beginners</h2>
+      <p class="section-intro">Blackbat helps you learn cybersecurity from zero with short daily quizzes, interactive lessons, and job-ready practice — without the 900-page textbook.</p>
+      <div class="grid">
+        <article class="card">
+          <span class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
+          <h3>Daily quizzes</h3>
+          <p>Short cybersecurity quizzes and scenarios you can finish in five minutes. Build the habit before you burn out on long study sessions.</p>
+        </article>
+        <article class="card">
+          <span class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></span>
+          <h3>Streaks &amp; rankings</h3>
+          <p>Stay consistent with daily streaks and climb the weekly leaderboard. Accountability that actually makes practice stick.</p>
+        </article>
+        <article class="card">
+          <span class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+          <h3>Interactive lessons</h3>
+          <p>Learn security fundamentals, networking, phishing, and more through bite-size interactive courses — then test what you learned.</p>
+        </article>
+        <article class="card">
+          <span class="card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></span>
+          <h3>Cert practice</h3>
+          <p>2,000+ certification practice questions with explanations and review drills for the exams that matter to your career.</p>
+        </article>
       </div>
-      <div class="card">
-        <h3>STREAKS_&amp;_RANKINGS</h3>
-        <p>Stay consistent with daily streaks and climb the weekly leaderboard. Accountability that actually makes practice stick.</p>
-      </div>
-      <div class="card">
-        <h3>INTERACTIVE_LESSONS</h3>
-        <p>Learn security fundamentals, networking, phishing, and more through bite-size interactive courses — then test what you learned.</p>
-      </div>
-      <div class="card">
-        <h3>CERT_PRACTICE</h3>
-        <p>2,000+ certification practice questions with explanations and review drills for the exams that matter to your career.</p>
-      </div>
-    </div>
     </section>
 
     <section class="content-section" id="curriculum" aria-labelledby="curriculum-heading">
-    <h2 class="section-h2" id="curriculum-heading">Study for Security+, Network+, A+, CCNA &amp; ISC2 CC</h2>
-    <p class="section-intro">Practice with real exam-style questions aligned to current certification objectives — on your phone, between classes or on your commute.</p>
-    <div class="certs">
-      <span class="cert">Security+ SY0-701</span>
-      <span class="cert">Network+</span>
-      <span class="cert">A+</span>
-      <span class="cert">CCNA</span>
-      <span class="cert">AWS Cloud Practitioner</span>
-      <span class="cert">ISC2 CC</span>
-    </div>
-    <p class="cert-note">Missed questions come back in spaced review drills, right before you'd forget them.</p>
+      <p class="section-label">// CERT_PREP</p>
+      <h2 class="section-h2" id="curriculum-heading">Study for Security+, Network+, A+, CCNA &amp; ISC2 CC</h2>
+      <p class="section-intro">Practice with real exam-style questions aligned to current certification objectives — on your phone, between classes or on your commute.</p>
+      <ul class="certs" aria-label="Certifications covered">
+        <li class="cert">Security+ SY0-701</li>
+        <li class="cert">Network+</li>
+        <li class="cert">A+</li>
+        <li class="cert">CCNA</li>
+        <li class="cert">AWS Cloud Practitioner</li>
+        <li class="cert">ISC2 CC</li>
+      </ul>
+      <p class="cert-note">Missed questions come back in spaced review drills, right before you'd forget them.</p>
     </section>
 
     <section class="content-section" id="how-it-works" aria-labelledby="how-heading">
-    <h2 class="section-h2" id="how-heading">Build job-ready skills, not just theory</h2>
-    <p class="section-intro">Whether you're starting from zero or switching from IT, Blackbat gives you a clear path toward entry-level cybersecurity roles and certifications.</p>
-    <p class="section-label">// HOW_IT_WORKS</p>
-    <div class="grid">
-      <div class="card">
-        <h3>01 · ASSESS</h3>
-        <p>Tell us your level and goals. Beginners start with fundamentals; people already in tech jump to hands-on material faster.</p>
-      </div>
-      <div class="card">
-        <h3>02 · PRACTICE</h3>
-        <p>Answer daily cybersecurity questions, work through interactive lessons, and drill certification objectives in short sessions.</p>
-      </div>
-      <div class="card">
-        <h3>03 · REVIEW</h3>
-        <p>Questions you miss return in review drills at the right time — so weak areas improve instead of getting buried.</p>
-      </div>
-      <div class="card">
-        <h3>04 · PROGRESS</h3>
-        <p>Track mastery across topics, build streaks, and stay motivated as you work toward certs and your first security role.</p>
-      </div>
-    </div>
+      <p class="section-label">// HOW_IT_WORKS</p>
+      <h2 class="section-h2" id="how-heading">Build job-ready skills, not just theory</h2>
+      <p class="section-intro">Whether you're starting from zero or switching from IT, Blackbat gives you a clear path toward entry-level cybersecurity roles and certifications.</p>
+      <ol class="grid">
+        <li class="card">
+          <span class="card__num" aria-hidden="true">01</span>
+          <h3>Assess</h3>
+          <p>Tell us your level and goals. Beginners start with fundamentals; people already in tech jump to hands-on material faster.</p>
+        </li>
+        <li class="card">
+          <span class="card__num" aria-hidden="true">02</span>
+          <h3>Practice</h3>
+          <p>Answer daily cybersecurity questions, work through interactive lessons, and drill certification objectives in short sessions.</p>
+        </li>
+        <li class="card">
+          <span class="card__num" aria-hidden="true">03</span>
+          <h3>Review</h3>
+          <p>Questions you miss return in review drills at the right time — so weak areas improve instead of getting buried.</p>
+        </li>
+        <li class="card">
+          <span class="card__num" aria-hidden="true">04</span>
+          <h3>Progress</h3>
+          <p>Track mastery across topics, build streaks, and stay motivated as you work toward certs and your first security role.</p>
+        </li>
+      </ol>
     </section>
 
     <section class="content-section" id="faq" aria-labelledby="faq-heading">
-    <h2 class="section-h2" id="faq-heading">Frequently asked questions</h2>
-    <div class="faq-list">
-      <div class="faq-item">
-        <h3>What is the best way to learn cybersecurity as a beginner?</h3>
-        <p>Start with security fundamentals, basic networking, and daily practice questions. Short, consistent sessions beat long cramming — which is why Blackbat uses five-minute daily drills.</p>
+      <p class="section-label">// FAQ</p>
+      <h2 class="section-h2" id="faq-heading">Frequently asked questions</h2>
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>Is Blackbat free?</summary>
+          <p>Yes. You get free daily certification questions with no account required. Blackbat Pro unlocks unlimited practice and removes ads.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What is the best way to learn cybersecurity as a beginner?</summary>
+          <p>Start with security fundamentals, basic networking, and daily practice questions. Short, consistent sessions beat long cramming — which is why Blackbat uses five-minute daily drills.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do I need experience to start learning cybersecurity?</summary>
+          <p>No. Blackbat is designed for beginners and career changers with no prior cybersecurity experience.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Is Blackbat good for Security+ exam prep?</summary>
+          <p>Yes. Blackbat includes SY0-701-aligned practice questions, explanations, and review drills designed for mobile study between classes or commutes.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Which certifications does Blackbat cover?</summary>
+          <p>Security+ (SY0-701), Network+, A+, CCNA, AWS Cloud Practitioner, and ISC2 Certified in Cybersecurity.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How is Blackbat different from other cybersecurity apps?</summary>
+          <p>Blackbat combines Duolingo-style daily practice with certification question banks and short interactive courses — focused on beginners, not advanced penetration testing.</p>
+        </details>
       </div>
-      <div class="faq-item">
-        <h3>Is Blackbat good for Security+ exam prep?</h3>
-        <p>Yes. Blackbat includes SY0-701-aligned practice questions, explanations, and review drills designed for mobile study between classes or commutes.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Do I need experience to start learning cybersecurity?</h3>
-        <p>No. Blackbat is designed for beginners and career changers with no prior cybersecurity experience.</p>
-      </div>
-      <div class="faq-item">
-        <h3>How is Blackbat different from other cybersecurity apps?</h3>
-        <p>Blackbat combines Duolingo-style daily practice with certification question banks and short interactive courses — focused on beginners, not advanced penetration testing.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Is Blackbat free?</h3>
-        <p>Yes. You get free daily certification questions with no account required. Blackbat Pro unlocks unlimited practice and removes ads.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Which certifications does Blackbat cover?</h3>
-        <p>Security+ (SY0-701), Network+, A+, CCNA, AWS Cloud Practitioner, and ISC2 Certified in Cybersecurity.</p>
-      </div>
-    </div>
     </section>
 
-    <section class="dt-store" id="get-the-app" aria-labelledby="get-app-heading">
-      <h2 class="section-h2" id="get-app-heading">Start learning free</h2>
-      <p class="section-intro">Download Blackbat and start practicing today. No account needed to begin.</p>
+    <section class="get-app" id="get-the-app" aria-labelledby="get-app-heading">
+      <img class="get-app__logo" src="assets/bat.png" alt="" width="64" height="64" loading="lazy" />
       <p class="section-label">// GET_THE_APP</p>
-      <div class="dt-store__badges">
-        <a href="https://apps.apple.com/app/blackbat/id6788403863" aria-label="Download Blackbat from the App Store">
-          <img src="assets/Download From App Store.png" alt="Download on the App Store" />
+      <h2 class="section-h2" id="get-app-heading">Start learning free</h2>
+      <p class="section-intro">Download Blackbat and start practising today. No account needed to begin.</p>
+      <div class="get-app__badges">
+        <a href="https://apps.apple.com/app/blackbat/id6788403863" aria-label="Download Blackbat on the App Store">
+          <img src="assets/Download From App Store.png" alt="" width="498" height="167" loading="lazy" />
         </a>
         <a class="playstore-badge" href="https://play.google.com/store/apps/details?id=com.milindbhatt.blackbat" aria-label="Get Blackbat on Google Play">
-          <img src="assets/Get It On Playstore.png" alt="Get it on Google Play" />
+          <img src="assets/Get It On Playstore.png" alt="" width="646" height="250" loading="lazy" />
         </a>
       </div>
+      <p class="get-app__fine">Free on iPhone and Android. Pro is optional.</p>
     </section>
 
     <div class="log" aria-hidden="true">
@@ -1414,6 +1548,11 @@
   </main>
 
   <footer class="site-footer">
+    <a class="site-footer__brand" href="#top">
+      <img src="assets/bat.png" alt="" width="28" height="28" loading="lazy" />
+      <span>Blackbat Terminal</span>
+    </a>
+    <p class="site-footer__tag">Learn cybersecurity. With direction.</p>
     <nav class="site-footer__nav" aria-label="Footer">
       <a href="#features">Features</a>
       <a href="roadmap.html">Roadmap</a>
@@ -1424,12 +1563,12 @@
       <a href="privacy.html">Privacy</a>
     </nav>
     <div class="site-footer__social">
-      <a href="https://www.instagram.com/blackbat.terminal/" rel="noopener noreferrer">Instagram</a>
-      <a href="https://www.facebook.com/blackbat.terminal/" rel="noopener noreferrer">Facebook</a>
-      <a href="https://x.com/bblackterminal" rel="noopener noreferrer">X</a>
-      <a href="https://www.reddit.com/user/blackbatterminal/" rel="noopener noreferrer">Reddit</a>
+      <a href="https://www.instagram.com/blackbat.terminal/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://www.facebook.com/blackbat.terminal/" target="_blank" rel="noopener noreferrer">Facebook</a>
+      <a href="https://x.com/bblackterminal" target="_blank" rel="noopener noreferrer">X</a>
+      <a href="https://www.reddit.com/user/blackbatterminal/" target="_blank" rel="noopener noreferrer">Reddit</a>
     </div>
-    <p class="site-footer__copy">© 2026 BLACKBAT // ALL TRANSMISSIONS MONITORED</p>
+    <p class="site-footer__copy">&copy; 2026 BLACKBAT // ALL TRANSMISSIONS MONITORED</p>
   </footer>
 
   <div class="dt-modal" id="demo-modal" hidden>
