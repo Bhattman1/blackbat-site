@@ -17,227 +17,145 @@
   <meta name="twitter:title" content="Blackbat — Support" />
   <meta name="twitter:description" content="Blackbat support: contact us, manage your subscription, delete your account, and find answers to common questions." />
   <meta name="twitter:image" content="https://blackbatterminal.com/assets/og-image.png" />
-  <meta name="theme-color" content="#0a0a0a" />
+  <meta name="theme-color" content="#050505" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --bg: #0a0a0a;
-      --surface: #131313;
-      --green: #00ff41;
-      --green-dim: #0d2a12;
-      --amber: #ffb000;
-      --red: #ff003c;
-      --text: #e5e2e1;
-      --muted: #b9ccb2;
-      --dim: #5f6e59;
-      --edge: #3b4b37;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: "JetBrains Mono", ui-monospace, monospace;
-      font-size: 16px;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 100;
-      background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.14) 0 1px, transparent 1px 3px);
-    }
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 99;
-      background: radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.5) 100%);
-    }
-    .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
-
-    header {
-      border-bottom: 1px solid var(--edge);
-      padding: 14px 0;
-      position: sticky;
-      top: 0;
-      background: rgba(10, 10, 10, 0.92);
-      backdrop-filter: blur(6px);
-      z-index: 50;
-    }
-    header .wrap { display: flex; justify-content: space-between; align-items: center; }
-    .brand {
-      font-family: "Space Mono", monospace;
-      font-weight: 700;
-      letter-spacing: 1px;
-      color: var(--text);
-      text-decoration: none;
-      text-shadow: 0 0 6px rgba(229, 226, 225, 0.55);
-      font-size: 15px;
-    }
-    .back-link {
-      font-size: 12px;
-      letter-spacing: 0.5px;
-      color: var(--green);
-      text-decoration: none;
-    }
-    .back-link:hover { text-decoration: underline; }
-
-    main { padding: 48px 0 80px; }
-    h1 {
-      font-family: "Space Mono", monospace;
-      font-size: clamp(26px, 5vw, 36px);
-      color: var(--green);
-      text-shadow: 0 0 12px rgba(0, 255, 65, 0.5);
-      margin-bottom: 10px;
-    }
-    .lede {
-      color: var(--muted);
-      margin-bottom: 40px;
-      font-size: 14px;
-    }
-
-    .contact-pane {
-      border: 1px solid var(--green);
-      background: rgba(13, 42, 18, 0.18);
-      padding: 24px;
-      margin-bottom: 40px;
-    }
-    .contact-pane .label {
-      font-size: 11px;
-      letter-spacing: 1.4px;
-      color: var(--dim);
-      margin-bottom: 10px;
-    }
-    .contact-pane a {
-      color: var(--green);
-      font-weight: 700;
-      font-size: 17px;
-      text-decoration: none;
-    }
-    .contact-pane a:hover { text-decoration: underline; }
-    .contact-pane .note {
-      margin-top: 10px;
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    .section-label {
-      font-size: 12px;
-      letter-spacing: 2px;
-      color: var(--amber);
-      margin: 40px 0 18px;
-    }
-    .faq {
-      border: 1px solid var(--edge);
-      background: var(--surface);
-      padding: 20px 22px;
-      margin-bottom: 14px;
-    }
-    .faq h3 {
-      font-size: 14px;
-      color: var(--green);
-      font-family: "Space Mono", monospace;
-      margin-bottom: 8px;
-    }
-    .faq p {
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-    .faq code {
-      color: var(--text);
-      background: rgba(255, 255, 255, 0.06);
-      padding: 1px 5px;
-      font-size: 12px;
-    }
-
-    footer {
-      margin: 60px 0 20px;
-      text-align: center;
-      color: var(--dim);
-      font-size: 11px;
-      letter-spacing: 1.2px;
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/site.css" />
 </head>
 <body>
-  <header>
-    <div class="wrap">
-      <a class="brand" href="index.html">&gt; BLACKBAT</a>
-      <a class="back-link" href="index.html">&lt; BACK TO SITE</a>
-    </div>
-  </header>
+  <div class="bb-page">
+    <a class="bb-skip" href="#main">Skip to content</a>
+    <header class="bb-header">
+      <div class="bb-header__inner">
+        <a class="bb-logo" href="index.html" aria-label="Blackbat Terminal home">
+          <img src="assets/bat.png" alt="" width="40" height="40" />
+          <span class="bb-logo__text">BLACK BAT<span>Terminal</span></span>
+        </a>
+        <nav class="bb-nav" id="site-nav" aria-label="Primary">
+          <a href="index.html#features">Features</a>
+          <a href="roadmap.html">Roadmap</a>
+          <a href="career-quiz.html">Career quiz</a>
+          <a href="index.html#faq">FAQ</a>
+          <a href="support.html" aria-current="page">Support</a>
+          <div class="bb-nav__stores">
+            <a class="bb-header__badge" href="https://apps.apple.com/app/blackbat/id6788403863" aria-label="Download Blackbat on the App Store">
+              <img src="assets/Download From App Store.png" alt="" width="498" height="167" />
+            </a>
+            <a class="bb-header__badge bb-header__badge--play" href="https://play.google.com/store/apps/details?id=com.milindbhatt.blackbat" aria-label="Get Blackbat on Google Play">
+              <img src="assets/Get It On Playstore.png" alt="" width="646" height="250" />
+            </a>
+          </div>
+        </nav>
+        <div class="bb-header__actions">
+          <a class="bb-header__badge" href="https://apps.apple.com/app/blackbat/id6788403863" aria-label="Download Blackbat on the App Store">
+            <img src="assets/Download From App Store.png" alt="" width="498" height="167" />
+          </a>
+          <a class="bb-header__badge bb-header__badge--play" href="https://play.google.com/store/apps/details?id=com.milindbhatt.blackbat" aria-label="Get Blackbat on Google Play">
+            <img src="assets/Get It On Playstore.png" alt="" width="646" height="250" />
+          </a>
+        </div>
+        <button class="bb-menu-btn" type="button" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </header>
 
-  <main class="wrap">
-    <h1>SUPPORT</h1>
-    <p class="lede">&gt; Need help with Blackbat? Start here, or reach out directly.</p>
+    <main class="bb-main" id="main">
+      <div class="bb-wrap bb-doc">
+        <p class="bb-eyebrow">// SUPPORT</p>
+        <h1>How can we help?</h1>
+        <p class="lede">Answers to the most common questions about your account and subscription. Still stuck? Email us and a real person will reply.</p>
 
-    <div class="contact-pane">
-      <div class="label">[CONTACT]</div>
-      <a href="mailto:blackbat.terminal@gmail.com">blackbat.terminal@gmail.com</a>
-      <div class="note">We aim to respond within 2 business days.</div>
-    </div>
+        <div class="contact-pane">
+          <div class="label">CONTACT</div>
+          <a href="mailto:blackbat.terminal@gmail.com">blackbat.terminal@gmail.com</a>
+          <div class="note">We aim to respond within 2 business days.</div>
+        </div>
 
-    <p class="section-label">// COMMON_QUESTIONS</p>
+        <p class="section-label">// COMMON_QUESTIONS</p>
 
-    <div class="faq">
-      <h3>How do I delete my account?</h3>
-      <p>
-        Open Blackbat &gt; <code>Profile</code> &gt; tap the settings icon &gt;
-        <code>Delete Account</code> (also available as a dedicated button at the
-        bottom of the Profile screen). You'll be asked to type a confirmation
-        phrase before the deletion goes through. This permanently removes your
-        account, progress, streaks, and friend connections and cannot be undone.
-      </p>
-    </div>
+        <div class="faq">
+          <h3>How do I delete my account?</h3>
+          <p>
+            Open Blackbat &gt; <code>Profile</code> &gt; tap the settings icon &gt;
+            <code>Delete Account</code> (also available as a dedicated button at the
+            bottom of the Profile screen). You'll be asked to type a confirmation
+            phrase before the deletion goes through. This permanently removes your
+            account, progress, streaks, and friend connections and cannot be undone.
+          </p>
+        </div>
 
-    <div class="faq">
-      <h3>How do I manage or cancel my subscription?</h3>
-      <p>
-        Subscriptions are billed through the App Store, so they're managed there:
-        open the <code>Settings</code> app on your iPhone &gt; tap your name at the
-        top &gt; <code>Subscriptions</code> &gt; select Blackbat. You can cancel or
-        change your plan at any time; access continues until the end of the
-        current billing period.
-      </p>
-    </div>
+        <div class="faq">
+          <h3>How do I manage or cancel my subscription?</h3>
+          <p>
+            Subscriptions are billed through the store you bought them from, so
+            they're managed there. <strong>iPhone:</strong> open the <code>Settings</code>
+            app &gt; tap your name at the top &gt; <code>Subscriptions</code> &gt; select
+            Blackbat. <strong>Android:</strong> open the <code>Google Play</code> app &gt;
+            tap your profile icon &gt; <code>Payments &amp; subscriptions</code> &gt;
+            <code>Subscriptions</code> &gt; select Blackbat. You can cancel or change your
+            plan at any time; access continues until the end of the current billing
+            period.
+          </p>
+        </div>
 
-    <div class="faq">
-      <h3>I upgraded but it's still showing as free. What do I do?</h3>
-      <p>
-        Open Blackbat &gt; <code>Profile</code> &gt; settings icon &gt;
-        <code>Restore Purchases</code>. This re-syncs your subscription status
-        from the App Store. If it still doesn't update, email us with the email
-        address on your Blackbat account and we'll look into it.
-      </p>
-    </div>
+        <div class="faq">
+          <h3>I subscribed but my subscription isn't showing. What do I do?</h3>
+          <p>
+            Open Blackbat &gt; <code>Profile</code> &gt; settings icon &gt;
+            <code>Restore Purchases</code>. This re-syncs your subscription status
+            from the App Store or Google Play. If it still doesn't update, email us with the email
+            address on your Blackbat account and we'll look into it.
+          </p>
+        </div>
 
-    <div class="faq">
-      <h3>How do rewarded ads and hearts work?</h3>
-      <p>
-        Free accounts occasionally hit a short cooldown between question sets —
-        you can skip it by watching a rewarded ad, or just wait it out. Blackbat
-        Pro removes ads and cooldowns entirely, and you never lose a heart for a
-        wrong answer.
-      </p>
-    </div>
+        <div class="faq">
+          <h3>How does the free trial work?</h3>
+          <p>
+            Every new user gets 7 days of full access to Blackbat for free. If you
+            don't want to continue, cancel from your App Store or Google Play
+            subscriptions (see above) before the trial ends and you won't be charged.
+          </p>
+        </div>
 
-    <div class="faq">
-      <h3>I found a bug or have feedback.</h3>
-      <p>
-        Email us at the address above with a short description of what happened
-        and, if possible, a screenshot. We read every message.
-      </p>
-    </div>
-  </main>
+        <div class="faq">
+          <h3>I found a bug or have feedback.</h3>
+          <p>
+            Email us at the address above with a short description of what happened
+            and, if possible, a screenshot. We read every message.
+          </p>
+        </div>
+      </div>
+    </main>
 
-  <footer>© 2026 BLACKBAT // ALL TRANSMISSIONS MONITORED</footer>
+    <footer class="bb-footer">
+      <div class="bb-wrap bb-footer__inner">
+        <a class="bb-footer__brand" href="index.html">
+          <img src="assets/bat.png" alt="" width="28" height="28" />
+          <span>Blackbat Terminal</span>
+        </a>
+        <p class="bb-footer__tag">Learn cybersecurity. With direction.</p>
+        <nav class="bb-footer__nav" aria-label="Footer">
+          <a href="index.html">Home</a>
+          <a href="index.html#features">Features</a>
+          <a href="roadmap.html">Roadmap</a>
+          <a href="career-quiz.html">Career quiz</a>
+          <a href="index.html#faq">FAQ</a>
+          <a href="support.html">Support</a>
+          <a href="privacy.html">Privacy</a>
+        </nav>
+        <div class="bb-footer__social">
+          <a href="https://www.instagram.com/blackbat.terminal/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://www.facebook.com/blackbat.terminal/" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a href="https://x.com/bblackterminal" target="_blank" rel="noopener noreferrer">X</a>
+          <a href="https://www.reddit.com/user/blackbatterminal/" target="_blank" rel="noopener noreferrer">Reddit</a>
+        </div>
+        <p class="bb-footer__copy">&copy; 2026 BLACKBAT // ALL TRANSMISSIONS MONITORED</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/site.js"></script>
 </body>
 </html>

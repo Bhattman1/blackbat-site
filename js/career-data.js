@@ -409,9 +409,9 @@
 
   var defaultResources = [
     {
-      name: "TryHackMe",
-      description: "Guided rooms for networking, Linux, and blue team basics.",
-      href: "https://tryhackme.com/",
+      name: "Hack The Box",
+      description: "Hands-on labs and guided modules for networking, Linux, and blue team basics.",
+      href: "https://www.hackthebox.com/",
       icon: "laptop",
       external: true,
     },
