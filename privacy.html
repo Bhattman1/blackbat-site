@@ -193,7 +193,7 @@
 
     <div class="contact-pane">
       <div class="label">[EFFECTIVE_DATE]</div>
-      <span class="date">August 11, 2026</span>
+      <span class="date">October 17, 2026</span>
       <div class="note">
         Blackbat is operated by Milind Bhatt and Owen Chan. For any question about this policy,
         your data, or to exercise the rights described below, contact
@@ -253,21 +253,44 @@
       </p>
     </div>
 
+    <div class="faq">
+      <h3>Usage analytics, screen recordings &amp; crash reports</h3>
+      <p>
+        From version 1.0.10, the app sends usage data to PostHog, our analytics
+        provider, so we can see where people get stuck and fix bugs: which screens
+        you open and which actions you take (for example finishing a lesson or
+        picking a plan on the subscription screen), your device type, operating
+        system, app version and approximate location from your IP address, error
+        reports when something crashes, and recordings of how you move through the
+        app's screens. Recordings hide everything you type, including your email
+        and password. This data is linked to your Blackbat account ID and a few
+        account details (whether you have Pro, your matched role, learning goal,
+        experience level and daily goal), never to your name or email.
+      </p>
+      <p>
+        You can switch all of this off at any time in
+        <code>Settings &gt; Privacy &gt; Share usage analytics and crash reports</code>.
+        That stops analytics, recordings and crash reports from that device
+        straight away.
+      </p>
+    </div>
+
     <p class="section-label">// WHAT_WE_DON'T_COLLECT</p>
 
     <div class="faq">
       <p>
-        We do not access your camera or photo library, location, contacts, or
-        microphone, and we don't use any third-party analytics or crash-reporting
-        SDK that profiles you across other apps. Profile pictures in Blackbat are
-        chosen from a set of built-in avatar presets, not uploaded from your device.
+        We do not access your camera or photo library, precise location, contacts,
+        or microphone. Our analytics (above) only covers how you use Blackbat: we
+        don't track you across other apps or websites, and we don't use your
+        data for advertising. Profile pictures in Blackbat are chosen from a set of
+        built-in avatar presets, not uploaded from your device.
       </p>
     </div>
 
     <p class="section-label">// HOW_WE_USE_YOUR_DATA</p>
 
     <div class="faq">
-      <p>To run the app you're using: authenticate you, save your progress, calculate streaks/XP/leaderboards, unlock premium content you've paid for, show your friends what you're up to, and send reminders you've opted into. We do not sell your personal data, and we do not use it to build advertising profiles of you.</p>
+      <p>To run the app you're using: authenticate you, save your progress, calculate streaks/XP/leaderboards, unlock premium content you've paid for, show your friends what you're up to, and send reminders you've opted into. Unless you switch it off, we also use usage analytics, screen recordings and crash reports to find and fix bugs and to improve lessons and the sign-up flow. We do not sell your personal data, and we do not use it to build advertising profiles of you.</p>
     </div>
 
     <p class="section-label">// THIRD-PARTY_SERVICES</p>
@@ -277,8 +300,9 @@
       <ul>
         <li><strong>Clerk</strong> — authentication (email, name, login method)</li>
         <li><strong>Convex</strong> — our database and file storage (everything listed above)</li>
-        <li><strong>RevenueCat</strong> &amp; <strong>Apple's App Store</strong> — subscription and purchase processing</li>
-        <li><strong>Google AdMob</strong> — serves ads to free-tier users (see below)</li>
+        <li><strong>RevenueCat</strong> &amp; <strong>Apple's App Store</strong> / <strong>Google Play</strong> — subscription and purchase processing</li>
+        <li><strong>PostHog</strong> — usage analytics, screen recordings and crash reports (see above; can be switched off in Settings)</li>
+        <li><strong>Google AdMob</strong> — served ads in app versions before 1.0.9 only (see below)</li>
       </ul>
       <p>
         Each of these processes data only to provide their specific service to us —
@@ -290,9 +314,14 @@
 
     <div class="faq">
       <p>
-        Free accounts see two kinds of ads, both served by Google AdMob: a banner
-        below some practice questions, and optional rewarded ads you can watch to
-        skip a short cooldown. We request <strong>non-personalized ads only</strong>
+        Blackbat no longer shows ads: from version 1.0.9 every account is on
+        Blackbat Pro and the ad SDK has been removed. The rest of this section
+        applies only if you still use an older version of the app.
+      </p>
+      <p>
+        In versions before 1.0.9, free accounts see two kinds of ads, both served by
+        Google AdMob: a banner below some practice questions, and optional rewarded
+        ads you can watch to skip a short cooldown. We request <strong>non-personalized ads only</strong>
         — we don't ask for App Tracking Transparency permission, and we don't share
         your Apple advertising identifier (IDFA) or any cross-app tracking data with
         Google or anyone else. Blackbat Pro removes ads entirely.
@@ -312,9 +341,10 @@
     <div class="faq">
       <p>
         You can permanently delete your account at any time from
-        <code>Profile &gt; Delete Account</code> — no email required. This
+        <code>Profile &gt; Settings &gt; Delete account</code> — no email required. This
         immediately and permanently removes your profile, progress, streaks, avatar,
-        and friend connections. We retain purchase and transaction records after
+        and friend connections, and deletes your usage analytics, screen recordings
+        and crash reports from PostHog. We retain purchase and transaction records after
         deletion, as required for financial recordkeeping and fraud prevention, but
         these are no longer linked to an active, usable account.
       </p>
@@ -323,8 +353,9 @@
         can work — there's no fixed expiry, because streaks and mastery history are
         the product. Purchase and transaction records are kept for 7 years to meet
         tax and financial recordkeeping obligations. Push notification tokens are
-        discarded once they stop being valid or you turn reminders off. Backups
-        containing deleted data roll off within 30 days.
+        discarded once they stop being valid or you turn reminders off. Screen
+        recordings are deleted after 30 days, and usage analytics and crash reports
+        after 1 year. Backups containing deleted data roll off within 30 days.
       </p>
     </div>
 
@@ -335,7 +366,7 @@
       <ul>
         <li><strong>Contract</strong> — your account, progress, purchases, friends and leaderboard entries: we can't provide the app you asked for without them.</li>
         <li><strong>Consent</strong> — push notifications, appearing on public leaderboards, and ads consent where required. You can withdraw any of these in-app at any time, without losing access to the rest of Blackbat.</li>
-        <li><strong>Legitimate interests</strong> — keeping the service secure, preventing abuse and fraud, and keeping the financial records above.</li>
+        <li><strong>Legitimate interests</strong> — keeping the service secure, preventing abuse and fraud, keeping the financial records above, and usage analytics, screen recordings and crash reports to fix bugs and improve the app. You can object to the analytics at any time by switching it off in <code>Settings &gt; Privacy</code>.</li>
       </ul>
     </div>
 
@@ -343,7 +374,7 @@
       <h3>International transfers</h3>
       <p>
         Blackbat is operated from Australia, and our providers (Clerk, Convex,
-        RevenueCat, Google) process data on servers in the United States and other
+        RevenueCat, PostHog, Google) process data on servers in the United States and other
         countries. Where data leaves the EEA or UK, those transfers rely on the
         European Commission's Standard Contractual Clauses (and the UK Addendum),
         which each of these providers has in place with us.
