@@ -15,10 +15,10 @@
   var POSTHOG_HOST = 'https://us.i.posthog.com';
   /*
    * Apple's provider token, from App Store Connect > App Analytics > Campaigns
-   * > Generate Link (the pt= value). Apple ignores the campaign tag without it,
-   * so until it's set iPhone downloads aren't split by ref. Taps still are.
+   * > Generate Link (the pt= value). It's the same for every campaign; the ref
+   * goes in as the campaign name, so a new ref needs no new link from Apple.
    */
-  var APP_STORE_PROVIDER_TOKEN = '';
+  var APP_STORE_PROVIDER_TOKEN = '128137859';
 
   var REF_PATTERN = /^[a-z0-9_-]{1,40}$/i;
 
@@ -71,6 +71,8 @@
   function tagAppStore(link) {
     if (!ref || !APP_STORE_PROVIDER_TOKEN) return;
     var url = new URL(link.href);
+    /* The form Apple's campaign link generator produces. */
+    url.pathname = '/app/apple-store/id6788403863';
     url.searchParams.set('pt', APP_STORE_PROVIDER_TOKEN);
     url.searchParams.set('ct', ref);
     url.searchParams.set('mt', '8');
