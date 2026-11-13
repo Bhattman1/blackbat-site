@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Zero Day — the daily cyber word game</title>
+  <meta name="description" content="Crack one hidden cybersecurity word a day in 6 probes. Free, no sign-up, new word every day. From Blackbat." />
+  <link rel="canonical" href="https://blackbatterminal.com/zeroday/" />
+  <link rel="icon" type="image/png" href="../assets/favicon.png" />
+  <meta property="og:title" content="Zero Day — the daily cyber word game" />
+  <meta property="og:description" content="One hidden hacking term. 6 probes. New word every day. Can you crack it before the trace completes?" />
+  <meta property="og:url" content="https://blackbatterminal.com/zeroday/" />
+  <meta property="og:site_name" content="Blackbat Terminal" />
+  <meta property="og:image" content="https://blackbatterminal.com/zeroday/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Zero Day — the daily cyber word game" />
+  <meta name="twitter:description" content="One hidden hacking term. 6 probes. New word every day." />
+  <meta name="twitter:image" content="https://blackbatterminal.com/zeroday/og.png" />
+  <meta name="theme-color" content="#050505" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="zeroday.css" />
+  <!-- Someone who came straight to the game is counted as coming from it (js/attribution.js). -->
+  <script>
+    try {
+      if (!new URLSearchParams(location.search).get('ref') && !sessionStorage.getItem('bb.ref')) {
+        sessionStorage.setItem('bb.ref', 'zeroday');
+      }
+    } catch (e) {}
+  </script>
+  <script src="../js/attribution.js" defer></script>
+  <script src="words.js" defer></script>
+  <script src="zeroday.js" defer></script>
+</head>
+<body data-screen="home">
+  <div class="zd-app">
+    <header class="zd-top">
+      <a class="zd-brand" href="../index.html" aria-label="Blackbat Terminal home">
+        <img src="../assets/bat.png" alt="" width="26" height="26" />
+        <span>BLACKBAT</span>
+      </a>
+      <div class="zd-top__actions">
+        <button class="zd-icon-btn" type="button" data-open="help" aria-label="How to play">?</button>
+        <button class="zd-icon-btn" type="button" data-open="stats" aria-label="Your stats">
+          <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><rect x="1" y="9" width="3" height="6" rx="1"/><rect x="6.5" y="5" width="3" height="10" rx="1"/><rect x="12" y="1" width="3" height="14" rx="1"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="zd-home" data-view="home">
+      <div class="zd-hex" id="zd-hex" aria-hidden="true"></div>
+      <img class="zd-bat" src="../assets/bat.png" alt="" width="92" height="92" />
+      <h1 class="zd-title" data-text="ZERO DAY">ZERO DAY</h1>
+      <p class="zd-sub">THE DAILY CYBER WORD</p>
+      <p class="zd-rules"><b>One hidden hacking term.</b> 6 probes to crack it before the trace completes. New word every day.</p>
+
+      <button class="zd-cta" type="button" id="zd-start">START TODAY&rsquo;S BREACH</button>
+      <div class="zd-meta">
+        <span id="zd-daynum">DAY #001</span>
+        <span id="zd-streak" hidden></span>
+      </div>
+      <div class="zd-links">
+        <button class="zd-chip" type="button" data-open="help">HOW TO PLAY</button>
+        <button class="zd-chip" type="button" id="zd-practice">PRACTICE &infin;</button>
+        <button class="zd-chip" type="button" data-open="stats">STATS</button>
+      </div>
+
+      <aside class="zd-ad" data-ad-slot="home" hidden aria-label="Advertisement"></aside>
+
+      <div class="zd-promo">
+        <div class="zd-promo__card">
+          <p><b>Want to actually learn this stuff?</b> Blackbat teaches cybersecurity in 5-minute lessons, from zero.</p>
+          <div class="zd-stores">
+            <a href="https://apps.apple.com/app/blackbat/id6788403863" aria-label="Download Blackbat on the App Store">
+              <img src="../assets/Download From App Store.png" alt="" width="498" height="167" />
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.milindbhatt.blackbat" aria-label="Get Blackbat on Google Play">
+              <img src="../assets/Get It On Playstore.png" alt="" width="646" height="250" />
+            </a>
+          </div>
+        </div>
+        <p class="zd-foot">A free daily game from <a href="../index.html">Blackbat Terminal</a> &middot; <a href="../privacy.html">Privacy</a></p>
+      </div>
+    </main>
+
+    <main class="zd-game" data-view="game">
+      <div class="zd-hud">
+        <button class="zd-back" type="button" id="zd-back" aria-label="Back to the start screen">&lsaquo; <span id="zd-mode">DAY #001</span></button>
+        <div class="zd-trace" id="zd-trace" role="img" aria-label="Trace 0 percent">
+          <span class="zd-trace__label">TRACE</span>
+          <div class="zd-trace__bar"><div class="zd-trace__fill" id="zd-trace-fill"></div></div>
+          <span class="zd-trace__pct" id="zd-trace-pct">0%</span>
+        </div>
+      </div>
+
+      <div class="zd-intel">
+        <div class="zd-intel__row">
+          <span class="zd-intel__tag" id="zd-intel-tag"></span>
+          <button class="zd-hint-btn" type="button" id="zd-hint-btn">HINT &middot; &minus;1 PROBE</button>
+        </div>
+        <p class="zd-intel__hint" id="zd-intel-hint" hidden></p>
+      </div>
+
+      <div class="zd-board-wrap">
+        <div class="zd-board" id="zd-board" role="group" aria-label="Your probes"></div>
+      </div>
+
+      <div class="zd-keys" id="zd-keys" aria-label="Keyboard"></div>
+
+      <section class="zd-result" id="zd-result" hidden aria-live="polite">
+        <p class="zd-result__kicker" id="zd-result-kicker"></p>
+        <p class="zd-result__rank" id="zd-result-rank"></p>
+        <p class="zd-result__line" id="zd-result-line"></p>
+        <p class="zd-result__word" id="zd-result-word"></p>
+        <span class="zd-result__cat" id="zd-result-cat"></span>
+        <p class="zd-result__def" id="zd-result-def"></p>
+        <div class="zd-result__actions">
+          <button class="zd-btn zd-btn--primary" type="button" id="zd-share">SHARE RESULT</button>
+          <button class="zd-btn zd-btn--ghost" type="button" id="zd-again">PRACTICE ANOTHER &infin;</button>
+        </div>
+        <p class="zd-next" id="zd-next">NEXT WORD IN <b id="zd-countdown">--:--:--</b></p>
+        <aside class="zd-ad" data-ad-slot="result" hidden aria-label="Advertisement"></aside>
+        <div class="zd-result__promo">
+          <p><b>That&rsquo;s one word.</b> Blackbat teaches you the whole field, 5 minutes a day.</p>
+          <div class="zd-stores">
+            <a href="https://apps.apple.com/app/blackbat/id6788403863" aria-label="Download Blackbat on the App Store">
+              <img src="../assets/Download From App Store.png" alt="" width="498" height="167" />
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.milindbhatt.blackbat" aria-label="Get Blackbat on Google Play">
+              <img src="../assets/Get It On Playstore.png" alt="" width="646" height="250" />
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="zd-toast" id="zd-toast" role="status" aria-live="assertive"></div>
+
+  <dialog class="zd-dialog" id="zd-dialog-help" aria-labelledby="zd-help-title">
+    <div class="zd-dialog__head">
+      <h2 id="zd-help-title">HOW TO PLAY</h2>
+      <button class="zd-icon-btn" type="button" data-close aria-label="Close">&times;</button>
+    </div>
+    <p>Every day there is <b>one hidden cybersecurity word</b>. You get <b>6 probes</b> to crack it. Each probe fills the trace; at 100% you&rsquo;re caught.</p>
+    <p>Type any letters to fill the row and press <b>ENTER</b>. Each letter comes back as:</p>
+    <div class="zd-legend">
+      <div class="zd-legend__item"><div class="zd-cell" data-state="hit">P</div><span><b>Locked in.</b> Right letter, right place.</span></div>
+      <div class="zd-legend__item"><div class="zd-cell" data-state="near">H</div><span><b>Leaked.</b> In the word, wrong place.</span></div>
+      <div class="zd-legend__item"><div class="zd-cell" data-state="miss">X</div><span><b>Denied.</b> Not in the word.</span></div>
+    </div>
+    <p>You always see the word&rsquo;s category and length. Stuck? <b>Decrypt the hint</b>, but it costs you one probe.</p>
+    <p>Fewer probes, better rank:</p>
+    <dl class="zd-ranks">
+      <dt>1</dt><dd>ZERO DAY</dd>
+      <dt>2</dt><dd>ROOT ACCESS</dd>
+      <dt>3</dt><dd>ADMIN</dd>
+      <dt>4</dt><dd>POWER USER</dd>
+      <dt>5</dt><dd>GUEST</dd>
+      <dt>6</dt><dd>SCRIPT KIDDIE</dd>
+    </dl>
+    <p class="zd-note">Everyone gets the same word each day. A new one arrives at midnight, your time.</p>
+  </dialog>
+
+  <dialog class="zd-dialog" id="zd-dialog-stats" aria-labelledby="zd-stats-title">
+    <div class="zd-dialog__head">
+      <h2 id="zd-stats-title">YOUR STATS</h2>
+      <button class="zd-icon-btn" type="button" data-close aria-label="Close">&times;</button>
+    </div>
+    <div class="zd-stats">
+      <div><b id="zd-stat-played">0</b><span>PLAYED</span></div>
+      <div><b id="zd-stat-win">0</b><span>WIN %</span></div>
+      <div><b id="zd-stat-streak">0</b><span>STREAK</span></div>
+      <div><b id="zd-stat-best">0</b><span>BEST</span></div>
+    </div>
+    <div class="zd-dist" id="zd-dist" aria-label="Probes used when you won"></div>
+    <p class="zd-note">Saved in this browser only. Practice rounds don&rsquo;t count.</p>
+  </dialog>
+</body>
+</html>

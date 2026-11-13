@@ -68,6 +68,9 @@
     }
   }
 
+  /* For pages with their own events, such as the daily game (zeroday/zeroday.js). */
+  window.bbTrack = send;
+
   function tagAppStore(link) {
     if (!ref || !APP_STORE_PROVIDER_TOKEN) return;
     var url = new URL(link.href);
