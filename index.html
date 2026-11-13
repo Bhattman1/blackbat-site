@@ -162,16 +162,7 @@
       width: 100%;
       touch-action: pan-y;
     }
-    /* CRT scanlines + vignette */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 100;
-      background:
-        repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.14) 0 1px, transparent 1px 3px);
-    }
+    /* Edge vignette */
     body::after {
       content: "";
       position: fixed;
@@ -1389,7 +1380,6 @@
 
     @media (min-width: 921px) {
       body { background: var(--dt-bg); }
-      body::before,
       body::after { display: none; }
 
       .hero { display: none; }
