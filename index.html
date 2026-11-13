@@ -269,6 +269,11 @@
     .mobile-hero-intro {
       display: none;
     }
+    .m-brand,
+    .m-sticky { display: none; }
+    html:not([data-platform="ios"]) .m-only-ios,
+    html:not([data-platform="android"]) .m-only-android,
+    html[data-platform] .m-only-other { display: none !important; }
     .cta-pane {
       padding: 4px 0;
       display: flex;
@@ -655,14 +660,157 @@
       }
       .hero-grid {
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr auto;
+        grid-template-rows: auto 1fr auto;
         height: 100%;
         min-height: 0;
         gap: 10px;
         justify-items: center;
         align-items: stretch;
-        padding: 8px 16px calc(12px + env(safe-area-inset-bottom, 0px));
+        padding: calc(10px + env(safe-area-inset-top, 0px)) 16px calc(14px + env(safe-area-inset-bottom, 0px));
       }
+      .m-brand {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+        font-family: "Space Mono", monospace;
+      }
+      .m-brand__name {
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        color: var(--dt-text);
+      }
+      .m-brand__name em {
+        font-style: normal;
+        color: var(--dt-green);
+      }
+      .m-brand__pill {
+        margin-left: auto;
+        padding: 5px 10px;
+        border: 1px solid rgba(0, 232, 70, 0.45);
+        border-radius: 999px;
+        background: rgba(0, 232, 70, 0.08);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        color: var(--dt-green);
+        white-space: nowrap;
+      }
+      .m-cta {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+        min-height: 54px;
+        padding: 0 18px;
+        border-radius: 12px;
+        background: var(--dt-green);
+        color: #031006;
+        font-family: "Space Mono", monospace;
+        font-size: 16px;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+        text-decoration: none;
+        box-shadow: 0 0 0 1px rgba(0, 232, 70, 0.5), 0 10px 32px rgba(0, 232, 70, 0.28);
+        transition: transform 0.12s ease, background 0.12s ease;
+      }
+      .m-cta:active {
+        transform: scale(0.98);
+        background: var(--dt-green-bright);
+      }
+      .m-cta svg {
+        width: 20px;
+        height: 20px;
+        fill: currentColor;
+        flex-shrink: 0;
+      }
+      .m-cta-note {
+        margin-top: 10px;
+        font-size: 12px;
+        line-height: 1.4;
+        color: var(--dt-text-2);
+        text-align: center;
+      }
+      .m-cta-note strong {
+        color: var(--dt-text);
+        font-weight: 500;
+      }
+      .m-cta-alt {
+        margin-top: 2px;
+        font-size: 12px;
+        color: var(--dt-text-muted);
+        text-align: center;
+      }
+      .m-cta-alt a {
+        display: inline-block;
+        padding: 8px 2px;
+        color: var(--dt-text);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      .m-sticky {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 90;
+        padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px));
+        background: rgba(5, 5, 5, 0.94);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-top: 1px solid rgba(0, 232, 70, 0.3);
+        font-family: "Space Mono", monospace;
+        transform: translateY(100%);
+        visibility: hidden;
+        transition: transform 0.25s ease, visibility 0s linear 0.25s;
+      }
+      .m-sticky.is-visible {
+        transform: none;
+        visibility: visible;
+        transition: transform 0.25s ease;
+      }
+      .m-sticky img {
+        width: 34px;
+        height: 34px;
+        object-fit: contain;
+        flex-shrink: 0;
+      }
+      .m-sticky__text {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        line-height: 1.25;
+      }
+      .m-sticky__text strong {
+        font-size: 13px;
+        color: var(--dt-text);
+      }
+      .m-sticky__text span {
+        font-size: 11px;
+        color: var(--dt-green);
+      }
+      .m-sticky__btn {
+        margin-left: auto;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        padding: 0 18px;
+        border-radius: 10px;
+        background: var(--dt-green);
+        color: #031006;
+        font-size: 14px;
+        font-weight: 700;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+      /* Room for the sticky bar so it never covers the footer links */
+      body { padding-bottom: calc(64px + env(safe-area-inset-bottom, 0px)); }
       .video-pane {
         min-height: 0;
         height: 100%;
@@ -677,6 +825,7 @@
         justify-content: flex-end;
         align-items: center;
         width: 100%;
+        max-width: 420px;
         height: auto;
         flex-shrink: 0;
       }
@@ -1283,8 +1432,21 @@
       .hero-copy-dt,
       .showcase { animation: none; }
       .dt-cta--primary:hover { transform: none; }
+      .m-sticky,
+      .m-sticky.is-visible,
+      .m-cta { transition: none; }
     }
   </style>
+  <script>
+    /* Phones get one store button for their own platform; see .m-only-* */
+    (function () {
+      var ua = navigator.userAgent || "";
+      var platform = /android/i.test(ua) ? "android"
+        : (/iphone|ipad|ipod/i.test(ua) || (/macintosh/i.test(ua) && navigator.maxTouchPoints > 1)) ? "ios"
+        : "";
+      if (platform) document.documentElement.setAttribute("data-platform", platform);
+    })();
+  </script>
   <script src="js/attribution.js" defer></script>
 </head>
 <body>
@@ -1386,8 +1548,12 @@
     </section>
 
     <div class="wrap">
-    <section class="hero">
+    <section class="hero" aria-label="Get the Blackbat app">
       <div class="hero-grid" id="get">
+        <div class="m-brand">
+          <span class="m-brand__name">Black Bat <em>Terminal</em></span>
+          <span class="m-brand__pill">7 DAYS FREE</span>
+        </div>
         <div class="video-pane">
           <video class="mockup-video" autoplay muted loop playsinline preload="metadata" aria-label="Blackbat app mockups playing in video">
             <source src="assets/App Store Mockups.mp4" type="video/mp4" />
@@ -1395,7 +1561,15 @@
         </div>
 
         <div class="cta-pane">
-          <div class="badge-grid">
+          <a class="m-cta m-only-ios" href="https://apps.apple.com/app/blackbat/id6788403863">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.37 12.6c-.02-2.3 1.88-3.4 1.96-3.46-1.07-1.56-2.73-1.77-3.32-1.8-1.41-.14-2.76.83-3.48.83-.72 0-1.83-.81-3.01-.79-1.55.02-2.98.9-3.78 2.29-1.61 2.79-.41 6.92 1.16 9.19.77 1.11 1.68 2.35 2.88 2.31 1.16-.05 1.59-.75 2.99-.75 1.4 0 1.79.75 3.01.72 1.24-.02 2.03-1.13 2.79-2.24.88-1.29 1.24-2.53 1.26-2.6-.03-.01-2.42-.93-2.46-3.7zM14.08 5.83c.64-.77 1.07-1.85.95-2.92-.92.04-2.03.61-2.69 1.38-.59.68-1.11 1.78-.97 2.83 1.02.08 2.07-.52 2.71-1.29z"/></svg>
+            Start 7-day free trial
+          </a>
+          <a class="m-cta m-only-android" href="https://play.google.com/store/apps/details?id=com.milindbhatt.blackbat">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.2v17.6c0 .7.8 1.2 1.4.8l14.6-8.8c.6-.4.6-1.2 0-1.6L6.4 2.4C5.8 2 5 2.5 5 3.2z"/></svg>
+            Start 7-day free trial
+          </a>
+          <div class="badge-grid m-only-other">
             <a class="store-badge" href="https://apps.apple.com/app/blackbat/id6788403863" aria-label="Download Blackbat from the App Store">
               <img src="assets/Download From App Store.png" alt="Download on the App Store" />
             </a>
@@ -1403,6 +1577,14 @@
               <img src="assets/Get It On Playstore.png" alt="Get it on Google Play" />
             </a>
           </div>
+          <p class="m-cta-note">
+            <strong class="m-only-ios">Opens the App Store.</strong>
+            <strong class="m-only-android">Opens Google Play.</strong>
+            <strong class="m-only-other">7-day free trial.</strong>
+            Cancel anytime.
+          </p>
+          <p class="m-cta-alt m-only-ios">On Android? <a href="https://play.google.com/store/apps/details?id=com.milindbhatt.blackbat">Get it on Google Play</a></p>
+          <p class="m-cta-alt m-only-android">On iPhone? <a href="https://apps.apple.com/app/blackbat/id6788403863">Get it on the App Store</a></p>
         </div>
       </div>
     </section>
@@ -1571,6 +1753,39 @@
     </div>
     <p class="site-footer__copy">&copy; 2026 BLACKBAT // ALL TRANSMISSIONS MONITORED</p>
   </footer>
+
+  <div class="m-sticky" id="m-sticky">
+    <img src="assets/bat.png" alt="" width="34" height="34" loading="lazy" />
+    <span class="m-sticky__text">
+      <strong>Blackbat</strong>
+      <span>7-day free trial</span>
+    </span>
+    <a class="m-sticky__btn m-only-ios" href="https://apps.apple.com/app/blackbat/id6788403863">Get the app</a>
+    <a class="m-sticky__btn m-only-android" href="https://play.google.com/store/apps/details?id=com.milindbhatt.blackbat">Get the app</a>
+    <a class="m-sticky__btn m-only-other" href="#get-the-app">Get the app</a>
+  </div>
+  <script>
+    /* Mobile download bar: shown once the hero's own button has scrolled
+       away, hidden again while the "Get the app" section is on screen. */
+    (function () {
+      var bar = document.getElementById("m-sticky");
+      var hero = document.querySelector(".hero");
+      var getApp = document.getElementById("get-the-app");
+      if (!bar || !hero || !("IntersectionObserver" in window)) return;
+      var seen = { hero: true, getApp: false };
+      function update() {
+        bar.classList.toggle("is-visible", !seen.hero && !seen.getApp);
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          seen[entry.target === hero ? "hero" : "getApp"] = entry.isIntersecting;
+        });
+        update();
+      });
+      io.observe(hero);
+      if (getApp) io.observe(getApp);
+    })();
+  </script>
 
   <div class="dt-modal" id="demo-modal" hidden>
     <button class="dt-modal__backdrop" type="button" data-demo-close aria-label="Close demo video"></button>
