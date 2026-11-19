@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Can you beat my score? — Blackbat</title>
+  <meta name="description" content="A friend challenged you to 5 cybersecurity questions on Blackbat. Same questions, one go." />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/png" href="../assets/favicon.png" />
+  <meta property="og:title" content="Can you beat my score?" />
+  <meta property="og:description" content="A friend challenged you to 5 cybersecurity questions on Blackbat. Same questions, one go." />
+  <meta property="og:url" content="https://blackbatterminal.com/c/" />
+  <meta property="og:site_name" content="Blackbat Terminal" />
+  <meta property="og:image" content="https://blackbatterminal.com/assets/og-image.png" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Can you beat my score?" />
+  <meta name="twitter:description" content="A friend challenged you to 5 cybersecurity questions on Blackbat. Same questions, one go." />
+  <meta name="twitter:image" content="https://blackbatterminal.com/assets/og-image.png" />
+  <meta name="theme-color" content="#050505" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/site.css" />
+  <style>
+    .bb-link-card { max-width: 560px; margin: 0 auto; text-align: center; }
+    .bb-link-card img.bb-link-bat { width: 96px; height: 96px; margin: 0 auto 8px; display: block; }
+    .bb-link-card .bb-btn { margin-top: 8px; }
+    .bb-link-stores { display: flex; gap: 12px; justify-content: center; align-items: center; flex-wrap: wrap; margin: 16px 0 8px; }
+    .bb-link-stores img { height: 48px; width: auto; }
+    .bb-link-note { font-size: 14px; opacity: 0.8; }
+    .bb-link-note code { font-family: 'JetBrains Mono', monospace; letter-spacing: 0.08em; }
+    [hidden] { display: none !important; }
+  </style>
+  <script src="../js/attribution.js" defer></script>
+</head>
+<body>
+  <div class="bb-page">
+    <header class="bb-header">
+      <div class="bb-header__inner">
+        <a class="bb-logo" href="../index.html" aria-label="Blackbat Terminal home">
+          <img src="../assets/bat.png" alt="" width="40" height="40" />
+          <span class="bb-logo__text">BLACK BAT<span>Terminal</span></span>
+        </a>
+      </div>
+    </header>
+
+    <main class="bb-main" id="main">
+      <div class="bb-wrap bb-doc bb-link-card">
+        <img class="bb-link-bat" src="../assets/bat.png" alt="" width="96" height="96" />
+        <p class="bb-eyebrow">// CHALLENGE</p>
+        <h1>Can you beat their score?</h1>
+        <p class="lede">A friend took 5 cybersecurity questions on Blackbat and sent you the same set. One go each, highest score wins.</p>
+
+        <div data-has-code hidden>
+          <a class="bb-btn bb-btn--primary bb-btn--block" data-open href="#">Play in Blackbat</a>
+
+          <p class="section-label">// DON&rsquo;T_HAVE_IT_YET</p>
+          <div class="bb-link-stores">
+            <a href="https://apps.apple.com/app/blackbat/id6788403863" aria-label="Download Blackbat on the App Store">
+              <img src="../assets/Download From App Store.png" alt="" width="498" height="167" />
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.milindbhatt.blackbat" aria-label="Get Blackbat on Google Play">
+              <img src="../assets/Get It On Playstore.png" alt="" width="646" height="250" />
+            </a>
+          </div>
+          <p class="bb-link-note">Then come back to this page and tap <strong>Play in Blackbat</strong> to start the challenge.</p>
+        </div>
+
+        <div data-no-code hidden>
+          <p class="bb-link-note">This link is missing its code. Ask your friend to send it again, or get the app:</p>
+          <div class="bb-link-stores">
+            <a href="https://apps.apple.com/app/blackbat/id6788403863" aria-label="Download Blackbat on the App Store">
+              <img src="../assets/Download From App Store.png" alt="" width="498" height="167" />
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.milindbhatt.blackbat" aria-label="Get Blackbat on Google Play">
+              <img src="../assets/Get It On Playstore.png" alt="" width="646" height="250" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script>
+    (function () {
+      /* Codes are short upper-case letters and digits (convex/social.ts). Anything else is ignored. */
+      var raw = new URLSearchParams(window.location.search).get('code') || '';
+      var code = raw.trim().toUpperCase();
+      var ok = /^[A-Z0-9]{4,16}$/.test(code);
+      document.querySelector(ok ? '[data-has-code]' : '[data-no-code]').hidden = false;
+      if (!ok) return;
+      document.querySelector('[data-open]').href = 'blackbat://challenge/' + code;
+      Array.prototype.forEach.call(document.querySelectorAll('[data-code]'), function (el) {
+        el.textContent = code;
+      });
+    })();
+  </script>
+</body>
+</html>
